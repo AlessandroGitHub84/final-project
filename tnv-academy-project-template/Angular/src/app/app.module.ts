@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { MovieSelectionComponent } from './components/movie-selection/movie-selection.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,7 @@ import { MovieSelectionComponent } from './components/movie-selection/movie-sele
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
