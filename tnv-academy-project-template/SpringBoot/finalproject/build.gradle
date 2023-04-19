@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.tnvacademy'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '20'
+sourceCompatibility = '19'
 
 repositories {
 	mavenCentral()
@@ -15,7 +15,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
