@@ -16,7 +16,7 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { MovieSelectionComponent } from './components/movie-selection/movie-selection.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { MovieSelectionComponent } from './components/movie-selection/movie-sele
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
