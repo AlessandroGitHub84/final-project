@@ -18,6 +18,7 @@ public class UserController {
     //CRUD operations (Create Read Update Delete)
 
     @PostMapping("/")
+    @CrossOrigin(origins = "http://localhost:4200")
     public String addUser(@RequestBody User user) {
         return userService.addUser(user);
     }

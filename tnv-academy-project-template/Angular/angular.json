@@ -76,7 +76,8 @@
               "browserTarget": "tnv-project-template:build:production"
             },
             "development": {
-              "browserTarget": "tnv-project-template:build:development"
+              "browserTarget": "tnv-project-template:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
