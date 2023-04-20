@@ -15,7 +15,7 @@ export class AuthService {
   login(loginData: LoginDTO) {
     console.log('auth service.ts', loginData);
    this.http.post(
-    "/api/users/",
+    "/auth/users/",
     loginData,
    ).subscribe()
     return this.http.get("/api/user");
@@ -24,7 +24,7 @@ export class AuthService {
 
   register(registerData: RegisterDTO) {
     this.http.post(
-      "/api/users/",
+      "/auth/users/",
       registerData,
    ).subscribe()
     this.router.navigateByUrl("/");
