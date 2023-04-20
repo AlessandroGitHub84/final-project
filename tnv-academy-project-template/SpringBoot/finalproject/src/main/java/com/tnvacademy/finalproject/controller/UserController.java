@@ -45,4 +45,10 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
+    @PostMapping("/users/login")
+    public String loginUser(@RequestBody User user) {
+        return userService.login(user);
+    }
+
+
 }
