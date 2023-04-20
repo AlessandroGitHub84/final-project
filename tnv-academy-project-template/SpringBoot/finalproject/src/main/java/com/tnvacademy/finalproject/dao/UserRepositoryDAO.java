@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository("dbUserDAO")
 public interface UserRepositoryDAO extends CrudRepository<User, Integer> {
-    public List<User> findByUsernameContains(String username);
+    public User findByUsernameContains(String username);
 
 }
