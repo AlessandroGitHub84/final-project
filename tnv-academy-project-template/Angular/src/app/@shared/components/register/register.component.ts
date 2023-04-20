@@ -18,15 +18,11 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  register(form: NgForm) {
+  register(event: Event, form: NgForm) {
+    event.preventDefault()
     form.control.markAllAsTouched();
     if (form.valid) {
       this.authService.register(form.value);
     }
-    const user: RegisterDTO = {  name: "testnome",
-      surname: "testcognome",
-      username: "testusername",
-      password: "testpassword"}
-      this.authService.register(user)
   }
 }

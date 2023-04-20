@@ -11,7 +11,7 @@
             <h3 class="mb-4">Registrati</h3>
           </div>
         </div>
-        <form #f="ngForm" (ngSubmit)="register(f)">
+        <form #f="ngForm" (ngSubmit)="register($event, f)">
           <div class="form-group">
             <label class="label" for="name">Nome</label>
             <input
