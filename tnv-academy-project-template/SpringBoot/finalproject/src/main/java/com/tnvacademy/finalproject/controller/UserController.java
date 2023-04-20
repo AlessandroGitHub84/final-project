@@ -45,7 +45,8 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
-    @PostMapping("/users/login")
+    @RequestMapping(value = "/users/login",
+            method=RequestMethod.POST)
     public String loginUser(@RequestBody User user) {
         return userService.login(user);
     }
