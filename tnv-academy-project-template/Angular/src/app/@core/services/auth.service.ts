@@ -18,7 +18,7 @@ export class AuthService {
     "/auth/users/",
     loginData,
    ).subscribe()
-    return this.http.get("/auth/user");
+    return this.http.get("/auth/users/");
 
   }
 
