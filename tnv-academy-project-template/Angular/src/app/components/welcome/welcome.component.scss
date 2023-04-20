@@ -1,5 +1,5 @@
 header {
-    padding-top: 50px;
+   
     width: 100%;
     height: 500px;
     background-image: url('../../../assets/images/red-blue.jpg');
@@ -24,6 +24,45 @@ header p {
     font-size: 2.3rem;
     margin: 0;
     text-shadow: 2px 2px 4px black;
+}
+
+.ranking p{
+    color: white;
+    font-size: 2rem;
+}
+
+.container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px lightgray;
+    width:auto;
+    height: auto;
+}
+
+.container h2,  ul{
+    margin-top: 10px;
+    
+    font-family: 'Pacifico', cursive;
+    color: rgb(73, 48, 48);
+    list-style-type:none;
+}
+
+footer{
+    background-color:rgb(86, 30, 92);
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+
+footer p{
+    
+    color: rgb(212, 205, 205);
 }
 
 
