@@ -10,7 +10,7 @@ import {RegisterDTO} from "../../../models/user"
   styleUrls: ["./register.component.scss"],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router, private http: HttpClient) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
@@ -27,10 +27,6 @@ export class RegisterComponent implements OnInit {
       surname: "testcognome",
       username: "testusername",
       password: "testpassword"}
-    this.http.post(
-       "localhost:8080/users/",
-      user,
-
-    ).subscribe()
+      this.authService.register(user)
   }
 }

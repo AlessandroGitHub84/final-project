@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
     private UserService userService;
 
@@ -18,7 +18,6 @@ public class UserController {
     //CRUD operations (Create Read Update Delete)
 
     @PostMapping("/")
-    @CrossOrigin(origins = "http://localhost:4200")
     public String addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
