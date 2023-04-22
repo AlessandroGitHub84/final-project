@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { MovieSelectionComponent } from './components/movie-selection/movie-selection.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { ReviewPageComponent } from './components/review-page/review-page.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import {MatChipsModule} from '@angular/material/chips';
     WelcomeComponent,
     ProfileComponent,
     RankingsComponent,
-    MovieSelectionComponent
+    MovieSelectionComponent,
+    ReviewPageComponent
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -39,7 +42,8 @@ import {MatChipsModule} from '@angular/material/chips';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    MatChipsModule
+    MatChipsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
