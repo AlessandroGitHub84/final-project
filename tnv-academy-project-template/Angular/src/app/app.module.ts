@@ -34,7 +34,7 @@ import {MatInputModule} from '@angular/material/input';
     MovieSelectionComponent,
     ReviewPageComponent
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
     FormsModule,

@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: "welcome", component: WelcomeComponent },
       { path: "profile", component: ProfileComponent },
       { path: "rankings", component: RankingsComponent },
-      { path: "review", component: ReviewPageComponent },
+      { path: "reviews", component: ReviewPageComponent },
       
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
       {path: "movie-selection", component: MovieSelectionComponent},
