@@ -1,124 +1,120 @@
 .example-card {
-  box-shadow: -5px 0 5px -5px rgba(167, 156, 156, 0.75), 5px 0 5px -5px rgba(0,0,0,0.75);
-    padding: 0px;
+    box-shadow: -5px 0 5px -5px rgba(167, 156, 156, 0.75), 5px 0 5px -5px rgba(0,0,0,0.75);
+      padding: 0px;
+    }
+    
+    .example-header-image {
+      
+      background-image: url('https://www.skuola.net/news_foto/2018/tema-cinema.jpg');
+      background-size: cover;
+      display: flex;
+    }
+    
+   h2{
+    color: rgba(255, 254, 254, 0.646);
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Roboto' sans-serif;
+    text-shadow: 2px 2px 4px rgb(65, 61, 61);
+   }
+   
+  
+    .container2{
+      justify-content: center;
+      padding-top: 30px;
+      padding-left: 30px;
+      padding-bottom: 20px;
+      box-shadow: -5px 0 5px -5px rgba(167, 156, 156, 0.75), 5px 0 5px -5px rgba(0,0,0,0.75);
+      font-family: 'Roboto', cursive;
+      color: rgba(255, 254, 254, 0.646);
+      background-color: rgba(215, 210, 210, 0.37);
+      height: 600px;
+      background-image: url('https://cdn.skuola.net/w1200h687/news_foto/2018/tema-cinema.jpg');
+      list-style-type: none;
+      
+    
+    
+    }
+  
+    ul {
+      list-style-type: none;
   }
   
-  .example-header-image {
+  td, ngb-rating{
+    font-size: 30px;
+    color: rgb(207, 207, 13);
+  }
+  
+  .v{
+    color: rgba(255, 254, 254, 0.646);
+  
+  }
+  
+  
+  
+   .container{
+    padding: 20px;
+     
+   }
+  
+   .recensione{
+    justify-content: center;
+   
     
-    background-image: url('https://www.skuola.net/news_foto/2018/tema-cinema.jpg');
+   }
+  .recensione h2{
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .mat-card{
+    box-shadow: none;
+  }
+  
+  .example-full-width{
+    max-width: 100%;
+  }
+  
+  .full-width-input {
+    width: 100%;
+  } 
+  
+  .cont-cent{
+   
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .buttom{
+    justify-content: center;
+    align-items: center;
+  }
+  
+  header {
+     
+    width: 100%;
+    height: 300px;
+    background-image: url('https://cdn.skuola.net/w1200h687/news_foto/2018/tema-cinema.jpg');
     background-size: cover;
     display: flex;
-  }
-  
- h2{
-  color: rgba(255, 254, 254, 0.646);
-  font-size: 60px;
-  text-align: center;
-  font-family: 'Roboto' sans-serif;
-  text-shadow: 2px 2px 4px rgb(65, 61, 61);
- }
- 
-
-  .container2{
+    align-items: center;
     justify-content: center;
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-bottom: 20px;
-    box-shadow: -5px 0 5px -5px rgba(167, 156, 156, 0.75), 5px 0 5px -5px rgba(0,0,0,0.75);
-    font-family: 'Roboto', cursive;
-    color: rgba(255, 254, 254, 0.646);
-    background-color: rgba(215, 210, 210, 0.37);
-    height: 600px;
-    background-image: url('https://cdn.skuola.net/w1200h687/news_foto/2018/tema-cinema.jpg');
-    list-style-type: none;
-    
-  
-  
+    flex-direction: column;
+    box-shadow: 0 3px 5px lightgray;
   }
-
-  ul {
-    list-style-type: none;
-}
-
-td, ngb-rating{
-  font-size: 30px;
-  color: rgb(207, 207, 13);
-}
-
-.v{
-  color: rgba(255, 254, 254, 0.646);
-
-}
-
-
-
- .container{
-  padding: 20px;
-   
- }
-
- .recensione{
-  justify-content: center;
- 
   
- }
-.recensione h2{
-  text-align: center;
-  font-family: 'Pacifico', cursive;
-}
-
-.mat-card{
-  box-shadow: none;
-}
-
-.example-full-width{
-  max-width: 100%;
-}
-
-.full-width-input {
-  width: 100%;
-} 
-
-.cont-cent{
- 
-  justify-content: center;
-  align-items: center;
+  header h1 {
+    color: white;
+    font-size: 128px;
+    margin: 0;
+    text-shadow: 2px 2px 4px black;
+  }
   
-}
-
-.buttom{
-  justify-content: center;
-  align-items: center;
-}
-
-header {
-   
-  width: 100%;
-  height: 300px;
-  background-image: url('https://cdn.skuola.net/w1200h687/news_foto/2018/tema-cinema.jpg');
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  box-shadow: 0 3px 5px lightgray;
-}
-
-header h1 {
-  color: white;
-  font-size: 128px;
-  margin: 0;
-  text-shadow: 2px 2px 4px black;
-}
-
-header p {
-  color: white;
-  font-family: 'Pacifico', cursive;
-  font-size: 2.3rem;
-  margin: 0;
-  text-shadow: 2px 2px 4px black;
-}
-
-
-
- 
+  header p {
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.3rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px black;
+  }

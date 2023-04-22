@@ -8,6 +8,7 @@ import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
 import { MovieSelectionComponent } from "./components/movie-selection/movie-selection.component"; 
+import { ReviewPageComponent } from "./components/review-page/review-page.component";
 const routes: Routes = [
   {
     path: "",
@@ -17,6 +18,8 @@ const routes: Routes = [
       { path: "welcome", component: WelcomeComponent },
       { path: "profile", component: ProfileComponent },
       { path: "rankings", component: RankingsComponent },
+      { path: "review", component: ReviewPageComponent },
+      
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
       {path: "movie-selection", component: MovieSelectionComponent},
     ],
