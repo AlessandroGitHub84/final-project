@@ -6,30 +6,49 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './movie-selection.component.html',
   styleUrls: ['./movie-selection.component.scss']
 })
-export class MovieSelectionComponent implements OnInit  {
-// definizione variabili del componente
-
-movie = {};
-
-  constructor(private http: HttpClient) { 
+export class MovieSelectionComponent implements OnInit {
+  // definizione variabili del componente
+  movieSelectionIndex = 0;
+  public visualisedMovie = {
+    title: "",
+    subtitle: "",
+    overview: "",
+    poster_path: ""
+  };
+  movieSelection = [];
+  constructor(private http: HttpClient) {
 
   }
   getRandomMovie() {
-    const latestId = 30000;
-    const randomId = Math.round(Math.random() * latestId);
-
     this.http
       .get(
         `http://localhost:1234/api/movies/random`
       )
       .subscribe({
-        next: (res: any) => {
-          console.log("Funziona!");},
-          error: () => {
-            console.log("Non funziona!");
-          },
-        });
-      }
+        next: (response: any) => {
+          console.log(response);
+          this.movieSelection = response;
+          this.visualisedMovie = this.movieSelection[0];
+        },
+        error: () => {
+          console.log("Non funziona!");
+        },
+      });
+  }
+
+  nextMovie(){
+    if (this.movieSelectionIndex == 9){
+      this.movieSelectionIndex = 0;
+    }else{this.movieSelectionIndex++}
+   this.visualisedMovie= this.movieSelection[this.movieSelectionIndex];
+  }
+
+  previousMovie(){
+    if (this.movieSelectionIndex == 0){
+      this.movieSelectionIndex = 9;
+    }else{this.movieSelectionIndex--}
+   this.visualisedMovie= this.movieSelection[this.movieSelectionIndex];
+  }
 
   ngOnInit(): void {
     this.getRandomMovie();

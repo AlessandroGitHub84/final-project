@@ -8,33 +8,20 @@ const options = {
     'Content-Type': 'application/json',
   },
 };
- var robi = [];
-robi[0] = "coso";
-robi[1] = "coso1";
-robi[2] = "coso2";
-robi[3] = "coso3";
-robi[4] = "coso4";
-robi[5] = "coso5";
-robi[6] = "coso6";
-robi[7] = "coso7";
-robi[8] = "coso8";
-robi[9] = "coso9";
- var numero = 6;
- 
-function getRobiRandom(robi,numero ){
- var  menoRobi = [], counter = 0;
-  for(let i = 0; i < numero; i++){
-    while (menoRobi.length < numero){
-    var randomIndex = robi [Math.round(Math.random() * robi.length)];
-      if (!menoRobi.some(an => an === rand)){
-        menoRobi.push(rand);
-        counter++;
-      }
+
+var numero = 10;
+
+function getElementsFromArray(arr, numero) {
+  var result = [];
+  while (result.length < numero) {
+    var rand = arr[Math.round(Math.random() * arr.length)];
+    if (!result.some(an => an === rand)) {
+      result.push(rand);
     }
   }
-  return menoRobi;
+  return result;
 }
-console.log(getRobiRandom(robi,numero));
+
 export const getRandomMovies = async (req, res) => {
 
   let data = '';
@@ -50,8 +37,9 @@ export const getRandomMovies = async (req, res) => {
 
     // The whole response has been received. Print out the result.
     response.on('end', () => {
-      console.log(data);
-      res.send(data);
+      console.log((JSON.parse(data)).results);
+      var selection = getElementsFromArray(((JSON.parse(data)).results), numero);
+      res.send(selection);
     });
   });
 

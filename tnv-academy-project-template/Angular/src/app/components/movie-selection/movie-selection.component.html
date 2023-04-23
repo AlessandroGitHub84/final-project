@@ -1,26 +1,26 @@
+
 <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
     <mat-card class="example-card col-15">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image "></div>
-            <mat-card-title>Movie title</mat-card-title>
-            <mat-card-subtitle>still a movie</mat-card-subtitle>
+            <mat-card-title>{{visualisedMovie.title}}</mat-card-title>
+            <mat-card-subtitle>{{visualisedMovie.subtitle}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="/assets/images/movieimage.avif">
+        <img class="example-image" mat-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{visualisedMovie.poster_path}}">
         <mat-card-content>
             <p>
-                un film
+               {{visualisedMovie.overview}}
             </p>
         </mat-card-content>
         <mat-card-actions>
             <section>
                 <div class="col-12 col-md-6 p-4 p-md-6">
-                    <button mat-raised-button color="primary"><mat-icon>arrow_circle_left</mat-icon></button>
+                    <button mat-raised-button color="primary"(click)="previousMovie()" ><mat-icon>arrow_circle_left</mat-icon></button>
                 </div>
             </section>
 
             <section>
                 <div class="col-12 col-md-9 p-4 p-md-6">
-                    <button mat-raised-button color="primary"> <mat-icon>arrow_circle_right</mat-icon></button>
+                    <button mat-raised-button color="primary"(click)="nextMovie()" > <mat-icon>arrow_circle_right</mat-icon></button>
                 </div>
             </section>
 
