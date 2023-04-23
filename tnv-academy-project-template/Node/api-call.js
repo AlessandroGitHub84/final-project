@@ -22,18 +22,16 @@ robi[9] = "coso9";
  var numero = 6;
  
 function getRobiRandom(robi,numero ){
- var  menoRobi = new Array();
+ var  menoRobi = [], counter = 0;
   for(let i = 0; i < numero; i++){
-    var randomIndex = Math.round(Math.random() * robi.length);
-    console.log(randomIndex);
-    console.log(menoRobi)
     while (menoRobi.length < numero){
-      if (robi[randomIndex] != menoRobi[i]){
-        menoRobi[i] = robi[randomIndex];
-      } else{
-        randomIndex = Math.round(Math.random() * robi.length);
+    var randomIndex = robi [Math.round(Math.random() * robi.length)];
+      if (!menoRobi.some(an => an === rand)){
+        menoRobi.push(rand);
+        counter++;
       }
     }
+    console.log(getRobiRandom(robi,numero));
   }
   return menoRobi;
 }
@@ -67,7 +65,7 @@ export const getRandomMovies = async (req, res) => {
   request.end();
 
 }
-console.log(getRobiRandom(robi,numero));
+
 
 
 
