@@ -31,11 +31,10 @@ function getRobiRandom(robi,numero ){
         counter++;
       }
     }
-    console.log(getRobiRandom(robi,numero));
   }
   return menoRobi;
 }
-
+console.log(getRobiRandom(robi,numero));
 export const getRandomMovies = async (req, res) => {
 
   let data = '';
