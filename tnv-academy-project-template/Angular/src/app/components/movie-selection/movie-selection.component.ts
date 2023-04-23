@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tnv-movie-selection',
@@ -13,10 +14,11 @@ export class MovieSelectionComponent implements OnInit {
     title: "",
     subtitle: "",
     overview: "",
-    poster_path: ""
+    poster_path: "",
+    id:""
   };
   movieSelection = [];
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
   getRandomMovie() {
@@ -48,6 +50,11 @@ export class MovieSelectionComponent implements OnInit {
       this.movieSelectionIndex = 9;
     }else{this.movieSelectionIndex--}
    this.visualisedMovie= this.movieSelection[this.movieSelectionIndex];
+  }
+
+  reviewMovie(){
+    this.router.navigate(["/reviews", this.visualisedMovie.id]);
+    console.log ();
   }
 
   ngOnInit(): void {
