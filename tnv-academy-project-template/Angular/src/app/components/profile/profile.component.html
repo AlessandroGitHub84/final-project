@@ -1,18 +1,130 @@
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened>
-<h2>Profilo </h2>
-<div class="row">
-  <div>
-    <span>Nome</span>: <span class="profile-data">{{ currentUser.name }}</span
-    ><br />
-    <span>Cognome</span>:
-    <span class="profile-data">{{ currentUser.surname }}</span
-    ><br />
-    <span>Username</span>:
-    <span class="profile-data">{{ currentUser.username }}</span
-    ><br />
+<div class="container">
+
+  <div class="row">
+    <div class="col-12" id="main">
+    <h1 style="font-weight: 600;">Punti totali: xxx</h1>
+    
+      </div>
+      <div class="row">
+        <div class="col-4" id="profile-column">
+        <div class="col-12 mt-5">
+          
+          
+            <h2>Profilo giocatore</h2>
+            
+              <div class="col-12" id="profile-text">
+                <span class="profile-data">Nome</span>: <span>{{ currentUser.name }}</span
+                ><br />
+                <span class="profile-data">Cognome</span>: <span>{{ currentUser.surname }}</span
+                ><br />
+                <span class="profile-data">Username</span>: <span>{{ currentUser.username }}</span
+                ><br />
+                <span class="profile-data">Film recensiti</span>: <span>{{ currentUser.username }}</span
+                  ><br />
+               <!-- <span class="ranking-data">Film recensiti</span>: <span>{{ numRecensioni }}</span
+                  ><br /> -->
+                
+              </div>
+              <div class="row" id="logout-space" style="text-align:  left;">
+                <tnv-logout class="mt-3"></tnv-logout>
+              </div>
+
+              </div> 
+          </div>
+
+          <div class="col-8">
+            <div class="row" id="play">
+              
+              <div>
+                
+                <div></div>
+                  <button mat-raised-button color="primary">Play</button>
+              </div>
+              
+              
+            </div>
+            <div class="col-12"id="film-bar">
+                <div>
+                  <span class="profile-data">Film recensiti da </span><span>{{ currentUser.name }}</span>
+                  <div class="col-12">
+                    <table class="table" id="ranking">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Titolo</th>
+                          <th scope="col">Anno</th>
+                          <th scope="col">Voto</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Il padrino</td>
+                          <td>1972</td>
+                          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>I predatori dell'arca perduta</td>
+                          <td>1981</td>
+                          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>L'Impero colpisce ancora</td>
+                          <td>1980</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>Le Ali della libertà</td>
+                          <td>1994</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>Lo Squalo</td>
+                          <td>1975</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">6</th>
+                          <td>Quei Bravi Ragazzi</td>
+                          <td>1990</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">7</th>
+                          <td>Apocalypse Now</td>
+                          <td>1979</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">8</th>
+                          <td>Cantando sotto la pioggia</td>
+                          <td>1952</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">9</th>
+                          <td>Pulp Fiction</td>
+                          <td>1994</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">10</th>
+                          <td>Fight Club</td>
+                          <td>1999</td>
+                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                
+                </div>
+               
+              </div>
+            </div>
+              
   </div>
-  <tnv-logout class="mt-3"></tnv-logout>
-</div> </mat-drawer>
-<mat-drawer-content>Main content</mat-drawer-content>
-</mat-drawer-container>
+</div>
