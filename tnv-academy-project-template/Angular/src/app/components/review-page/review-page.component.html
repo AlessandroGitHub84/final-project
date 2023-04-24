@@ -1,58 +1,51 @@
 <header>
-    <h1>MOVIE REVIEW</h1>
-  </header>
-  
-  <div class="container">
+  <h1></h1>
+</header>
+<div class="container">
   <div class="row">
-      <div class=" col-md-6">
-          <mat-card class="example-card ">
-              <mat-card-header>
-                <div mat-card class="example-header-image"></div>
-                <mat-card-title></mat-card-title>
-                <mat-card-subtitle></mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image src="https://i.ebayimg.com/images/g/JycAAOSwFytjyv-Q/s-l1600.jpg" alt="Photo of a Shiba Inu">
-              <mat-card-content>
-              </mat-card-content>
-            </mat-card>
-      </div>
-      
-      <div class="col-md-6">
-          <div class="container2">
-              <div class="mt-5"></div>
-              
-              <h2 class="mb-4">DESCRIPTION</h2>
-              <ul>
-                  <li><h5>aaaaaaaa ddddddddddddddddddddddddddddd:</h5>bbbb</li>
-                  <li><h5>aaaaaaaa:</h5>bbbb</li>
-                  <li><h5>aaaaaaaa:</h5>bbbb</li> 
-                  
-                  <div class="vota row col-4 mt-5">
-                  <div class="col-2"><td class="v">Rate:</td></div>
-                  <div class="col-"><td><ngb-rating [max]="5"></ngb-rating></td></div>
-                </div>
-              </ul>
-              
-              
+    <div class=" col-md-6">
+      <mat-card class="example-card ">
+        <mat-card-header>
+          <div mat-card class="example-header-image"></div>
+          <mat-card-title>{{visualisedMovie.title}}</mat-card-title>
+          <mat-card-subtitle>{{visualisedMovie.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{visualisedMovie.poster_path}}">
+        <mat-card-content>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-6">
+      <div class="container2">
+        <div class="mt-5"></div>
+        <h2 class="mb-4">DESCRIPTION</h2>
+        <ul>
+          <p>{{visualisedMovie.overview}}</p>
+          <div class="vota row col-4 mt-5">
+            <div class="col-2">
+              <td class="v">Rate:</td>
+            </div>
+            <div class="col-">
+              <td><ngb-rating [max]="5"></ngb-rating></td>
+            </div>
           </div>
+        </ul>
       </div>
+    </div>
   </div>
-  </div>
-  
- 
-  <div class="container">
-    <div class="cont-cent">
+</div>
+<div class="container">
+  <div class="cont-cent">
     <div class="row">
-    <form class="example-form">
-      <mat-form-field class="full-width-input">
-        <mat-label>Leave a review</mat-label>
-        <textarea matInput placeholder="Your comment..."></textarea>
-      </mat-form-field>
-    </form>
+      <form #f="ngForm" (ngSubmit)="createReview($event, f)">
+        <mat-form-field class="full-width-input">
+          <mat-label  class="label" for="review">Leave a review</mat-label>
+          <textarea matInput placeholder="Your comment..." ngModel name="review"></textarea>
+        </mat-form-field>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary col-3 mx-5">Add review</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="row justify-content-center button  mb-3">
-    <button routerLink="" type="submit" class="btn btn-primary col-3 mx-5">Add review</button>
-    <button routerLink="" type="submit" class="btn btn-primary col-3 mx-5">Add review</button>
-  </div> 
-  </div> 
-  </div>
+</div>

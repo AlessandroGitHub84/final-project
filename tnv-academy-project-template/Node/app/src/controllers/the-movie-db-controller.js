@@ -38,7 +38,6 @@ export const getRandomMovies = async (req, res) => {
 
     // The whole response has been received. Print out the result.
     response.on('end', () => {
-      console.log((JSON.parse(data)).results);
       var selection = getElementsFromArray(((JSON.parse(data)).results), numero);
       res.send(selection);
     });

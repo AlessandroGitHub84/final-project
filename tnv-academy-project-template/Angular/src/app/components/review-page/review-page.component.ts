@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Router } from "@angular/router";
+import { ReviewService } from "src/app/@shared/services/review.service";
+import { NgForm } from "@angular/forms";
+import {User} from "src/app/models/user";
 
 @Component({
   selector: 'tnv-review-page',
@@ -12,8 +15,16 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   
 id: number = 0;
 private sub: any;
+public visualisedMovie = {
+  title: "",
+  subtitle: "",
+  overview: "",
+  poster_path: "",
+  id:""
+};
 
-constructor(private route: ActivatedRoute, private http: HttpClient) {}
+constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router,
+  private reviewService: ReviewService) {}
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params =>{
@@ -21,6 +32,24 @@ constructor(private route: ActivatedRoute, private http: HttpClient) {}
       this.getMovie();
     })
   }
+  createReview(event: Event, form: NgForm){
+    console.log("mi hai chiamato?")
+    event.preventDefault()
+    form.control.markAllAsTouched();
+    if (form.valid) {
+      console.log("si ho aggiunto il contenuto del form");
+      let userComeStringa= localStorage.getItem("user");
+      let user: User;
+        user = JSON.parse(userComeStringa!)
+      let review ={
+        userId: user!.id,
+        movieId: this.id,
+        review: form.value.review
+      }
+      this.reviewService.addReview(review);
+    }
+  }
+  
   getMovie() {
     this.http
       .get(
@@ -28,7 +57,7 @@ constructor(private route: ActivatedRoute, private http: HttpClient) {}
       )
       .subscribe({
         next: (response: any) => {
-          console.log(response);
+         this.visualisedMovie = response;
         },
         error: () => {
           console.log("Non funziona!");
@@ -38,4 +67,5 @@ constructor(private route: ActivatedRoute, private http: HttpClient) {}
 ngOnDestroy(): void {
   this.sub.unsubscribe();
 }
+
 }

@@ -51,20 +51,20 @@ public class UserService {
             return "Utente cancellato correttamente";
         }
     }
-    public String login(User user) {
+    public User login(User user) {
         // Controlla se l'utente esiste nel database
         User dbUser = (User) userDAO.findByUsernameContains(user.getUsername());
-        if (dbUser == null) {
-            return "Nome utente o password errati";
-        }
-
-        // Verifica la password
-        if (!user.getPassword().equals(dbUser.getPassword())) { //oppure user.getPassword() != dbUser.getPassword
-            return "Nome utente o password errati";
-        }
+//        if (dbUser == null) {
+//            return "Nome utente o password errati";
+//        }
+//
+//        // Verifica la password
+//        if (!user.getPassword().equals(dbUser.getPassword())) { //oppure user.getPassword() != dbUser.getPassword
+//            return "Nome utente o password errati";
+//        }
 
         // Restituisce un messaggio di successo
-        return "Login effettuato con successo";
+        return dbUser;
     }
 
 }

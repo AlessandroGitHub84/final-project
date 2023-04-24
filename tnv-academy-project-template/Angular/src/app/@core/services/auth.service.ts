@@ -9,17 +9,16 @@ import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
 })
 export class AuthService {
   springBootUrl = 'http://localhost:8080';
+  id : any;
 
   constructor(private router: Router, private http: HttpClient) {}
 
   login(loginData: LoginDTO) {
     console.log('auth service.ts', loginData);
-   this.http.post(
-    "/auth/users/",
+   return this.http.post(
+    "/auth/users/login",
     loginData,
-   ).subscribe()
-    return this.http.get("/auth/users/");
-
+   );
   }
 
   register(registerData: RegisterDTO) {
