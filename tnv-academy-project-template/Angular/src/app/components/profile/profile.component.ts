@@ -4,8 +4,6 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 import { User } from 'src/app/models/user';
 import { Review } from 'src/app/models/review';
 import { ReviewService } from 'src/app/@shared/services/review.service';
-import { RatingService } from 'src/app/@shared/services/rating.service';
-import { Rating } from 'src/app/models/rating';
 
 @Component({
   selector: 'tnv-profile',
@@ -17,19 +15,19 @@ export class ProfileComponent implements OnInit {
   currentUser: Partial<User> = {};
   
   reviews: Review[] = [];
-  ratings: Rating[] = [];
+
 
 
   currentID = this.getID();
 
   constructor(private authService: AuthService, private reviewService : ReviewService, 
-    private http: HttpClient, private ratingService : RatingService) { }
+    private http: HttpClient) { }
 
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     this.getReviews();
-    this.getRatings();
+  
 
     
   }
@@ -53,15 +51,7 @@ export class ProfileComponent implements OnInit {
         }})
        }
 
-       getRatings(){
-        console.log("carico il contenuto");
-        this.ratingService.getRatingsById(this.currentID).subscribe({
-          next:
-          (response: Rating[]) => {
-           this.ratings = response.filter((x) => x.userId == '$this.currentID');
-            console.log(this.reviews);
-          }})
-           }
+    
          
        
 }
