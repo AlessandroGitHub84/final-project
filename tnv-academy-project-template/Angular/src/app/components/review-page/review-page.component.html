@@ -1,6 +1,3 @@
-<header>
-  <h1></h1>
-</header>
 <div class="container">
   <div class="row">
     <div class=" col-md-6">
@@ -18,18 +15,18 @@
     <div class="col-md-6">
       <div class="container2">
         <div class="mt-5"></div>
-        <h2 class="mb-4">DESCRIPTION</h2>
-        <ul>
+        <div class="descrizione">
+          <h2 class="mb-4">DESCRIZIONE</h2>
+
           <p>{{visualisedMovie.overview}}</p>
-          <div class="vota row col-4 mt-5">
-            <div class="col-2">
-              <td class="v">Rate:</td>
-            </div>
-            <div class="col-">
-              <td><ngb-rating [max]="5"></ngb-rating></td>
-            </div>
+
+        </div>
+        <div class="row col- mt-5">
+          <div >
+            <h2>Rate</h2>
           </div>
-        </ul>
+          <td><ngb-rating [max]="5"></ngb-rating></td>
+        </div>
       </div>
     </div>
   </div>
@@ -39,11 +36,11 @@
     <div class="row">
       <form #f="ngForm" (ngSubmit)="createReview($event, f)">
         <mat-form-field class="full-width-input">
-          <mat-label  class="label" for="review">Leave a review</mat-label>
+          <mat-label class="label" for="review">Leave a review</mat-label>
           <textarea matInput placeholder="Your comment..." ngModel name="review"></textarea>
         </mat-form-field>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary col-3 mx-5">Add review</button>
+          <button type="submit" class="btn btn-primary col-3 mx-5"> Add review</button>
         </div>
       </form>
     </div>
