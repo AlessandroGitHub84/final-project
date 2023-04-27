@@ -101,14 +101,22 @@
               >Campo obbligatorio</small
             >
           </div>
-          <div class="" class="text-center  mb-2"><label>SCEGLI LA TUA FAZIONE</label></div>
           <div class="row mb-2">
             <div class="mx-4">
               <div class="form-group">
-                <mat-chip-listbox aria-label="Fish selection">
-                  <mat-chip-option class="col-4 mx-3">RED</mat-chip-option>
-                  <mat-chip-option class="col-4 mx-4">BLUE</mat-chip-option>
+                <mat-chip-listbox required [ngModel] name="team" #team="ngModel" aria-label="Fish selection">
+                  <mat-chip-option class=" mx-3"><span class="team-label">RED</span></mat-chip-option>
+                  <mat-chip-option color="accent" class=" mx-4 blue"><span class="team-label">BLUE</span></mat-chip-option>
                    </mat-chip-listbox>
+                   <small
+              [style.visibility]="
+                team.invalid && (team.dirty || team.touched)
+                  ? 'visible'
+                  : 'hidden'
+              "
+              class="form-text text-danger"
+              >Campo obbligatorio</small
+            >
                 </div>
           <!--<button class="col-4 mx-5" mat-raised-button color="primary">BLU</button>
           <button class="col-4 "  class=" btn btn-primary px-4 mx-3">RED</button>
