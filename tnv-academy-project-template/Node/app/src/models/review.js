@@ -12,6 +12,9 @@ const Review = db.define('review', {
   },
   review: {
     type: DataTypes.STRING
+  },
+  team: {
+    type: DataTypes.STRING
   }
 }, {
   freezeTableName: true

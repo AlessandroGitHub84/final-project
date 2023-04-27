@@ -13,7 +13,7 @@ public class User {
     private String surname;
     private String username;
     private String password;
-    private String email;
+    private String team;
 
     public String getName() {
         return name;
@@ -55,12 +55,12 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getTeam() {
+        return this.team;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTeam(String team) {
+        this.team = team;
     }
 }
 
