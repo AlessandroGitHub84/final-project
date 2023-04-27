@@ -13,46 +13,33 @@ import { ReviewService } from 'src/app/@shared/services/review.service';
 export class ProfileComponent implements OnInit {
 
   currentUser: Partial<User> = {};
-  
   reviews: Review[] = [];
-
-
-
   currentID = this.getID();
 
-  constructor(private authService: AuthService, private reviewService : ReviewService, 
+  constructor(private authService: AuthService, private reviewService: ReviewService,
     private http: HttpClient) { }
-
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     this.getReviews();
-  
-
-    
   }
 
-  getID(){
+  getID() {
     console.log("Recupero l'id utente");
     let userString = localStorage.getItem("user");
     let user: User;
-      user = JSON.parse(userString!);
-
+    user = JSON.parse(userString!);
     return user.id;
   }
 
-  getReviews(){
-    
+  getReviews() {
     this.reviewService.getReviewsById().subscribe({
-      next: 
-      (response: Review[]) => {
-        this.reviews = response.filter((x) => x.userId == this.currentID);
-        console.log(this.reviews);
-        }})
-       }
-
-    
-         
-       
+      next:
+        (response: Review[]) => {
+          this.reviews = response.filter((x) => x.userId == this.currentID);
+          console.log(this.reviews);
+        }
+    })
+  }
 }
 
