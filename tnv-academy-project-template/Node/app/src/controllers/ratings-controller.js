@@ -1,5 +1,21 @@
 import Rating from "../models/rating.js";
 
+export const getRatings = async (res) => {
+    try {
+        console.log("non trovo nulla");
+        const ratings = await Rating.findAll({
+        });
+        if (ratings) {
+            res.send(ratings);
+        } else {
+            res.sendStatus(404);
+        }
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+}
+
 export const getRating = async (req, res) => {
     try {
         const rating = await Rating.findOne({

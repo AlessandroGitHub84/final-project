@@ -12,7 +12,10 @@ export class ReviewService {
 
   constructor(private httpClient: HttpClient, private router: Router) {}
 
-
+  getReviewsById() {
+    return this.httpClient.get<Review[]>(`${this.API_ROOT}/review`);
+  }
+  
   getReview(userId: number, movieId: number) {
     return this.httpClient.get<Review>(`${this.API_ROOT}/review/${userId}/${movieId}`);
   }

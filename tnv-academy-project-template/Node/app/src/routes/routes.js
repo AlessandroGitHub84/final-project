@@ -2,17 +2,19 @@ import express from "express";
 
 const API_ROOT = '/api';
 
-import { getRating, createRating, updateRating, deleteRating } from "../controllers/ratings-controller.js";
+import { getRatings, getRating, createRating, updateRating, deleteRating } from "../controllers/ratings-controller.js";
 import { getMovie, getRandomMovies } from "../controllers/the-movie-db-controller.js";
-import { getReview, createReview, updateReview, deleteReview } from "../controllers/review-controller.js";
+import { getReviews,getReview, createReview, updateReview, deleteReview } from "../controllers/review-controller.js";
 
 const router = express.Router();
 
-router.get(`${API_ROOT}/rating/:userId/:movieId`, getRating);
-router.post(`${API_ROOT}/rating`, createRating);
-router.patch(`${API_ROOT}/rating/:id`, updateRating);
-router.delete(`${API_ROOT}/rating/:id`, deleteRating);
+router.get(`${API_ROOT}/ratings`, getRatings);
+router.get(`${API_ROOT}/ratings/:userId/:movieId`, getRating);
+router.post(`${API_ROOT}/ratings`, createRating);
+router.patch(`${API_ROOT}/ratings/:id`, updateRating);
+router.delete(`${API_ROOT}/ratings/:id`, deleteRating);
 
+router.get(`${API_ROOT}/review/`, getReviews);
 router.get(`${API_ROOT}/review/:userId/:movieId`, getReview);
 router.post(`${API_ROOT}/review`, createReview);
 router.patch(`${API_ROOT}/review/:id`, updateReview);

@@ -19,7 +19,7 @@
                 ><br />
                 <span class="profile-data">Username</span>: <span>{{ currentUser.username }}</span
                 ><br />
-                <span class="profile-data">Film recensiti</span>: <span>{{ currentUser.username }}</span
+                <span>Film recensiti</span>: <span>{{ reviews.length }}</span
                   ><br />
                <!-- <span class="ranking-data">Film recensiti</span>: <span>{{ numRecensioni }}</span
                   ><br /> -->
@@ -39,9 +39,11 @@
                 
                 <div></div>
                   <button mat-raised-button color="primary">Play</button>
+
+                  
               </div>
               
-              
+        
             </div>
             <div class="col-12"id="film-bar">
                 <div>
@@ -57,65 +59,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Il padrino</td>
-                          <td>1972</td>
-                          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>I predatori dell'arca perduta</td>
-                          <td>1981</td>
-                          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>L'Impero colpisce ancora</td>
-                          <td>1980</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>Le Ali della libertà</td>
-                          <td>1994</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">5</th>
-                          <td>Lo Squalo</td>
-                          <td>1975</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">6</th>
-                          <td>Quei Bravi Ragazzi</td>
-                          <td>1990</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">7</th>
-                          <td>Apocalypse Now</td>
-                          <td>1979</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">8</th>
-                          <td>Cantando sotto la pioggia</td>
-                          <td>1952</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">9</th>
-                          <td>Pulp Fiction</td>
-                          <td>1994</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">10</th>
-                          <td>Fight Club</td>
-                          <td>1999</td>
-                          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
+
+                       
+                        <tr *ngFor="let review of reviews">
+                          <td>{{review.movieId}}</td>
+                          <td></td>
+                          <td>{{review.movieId}}</td>
+                          <td>{{review.review}}</td>
                         </tr>
                       </tbody>
                     </table>
