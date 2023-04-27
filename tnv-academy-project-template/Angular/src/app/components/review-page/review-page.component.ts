@@ -44,7 +44,9 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
       let review ={
         userId: user!.id,
         movieId: this.id,
-        review: form.value.review
+        team: user!.team,
+        review: form.value.review,
+        rating: form.value.rating
       }
       this.reviewService.addReview(review);
     }

@@ -3,6 +3,7 @@ export interface User {
   name: string;
   surname: string;
   username: string;
+  team: string
 }
 
 export interface LoginDTO {
@@ -15,4 +16,5 @@ export interface RegisterDTO {
   surname: string;
   username: string;
   password: string;
+  team: string
 }
