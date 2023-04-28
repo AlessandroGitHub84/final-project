@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { ReviewService } from "src/app/@shared/services/review.service";
 import { NgForm } from "@angular/forms";
 import {User} from "src/app/models/user";
+import {Review} from "src/app/models/review";
 
 @Component({
   selector: 'tnv-review-page',
@@ -25,6 +26,11 @@ public visualisedMovie = {
 
 constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router,
   private reviewService: ReviewService) {}
+  review: Review = { userId:0,
+    movieId:0,
+    team: "",
+    review: "",
+    rating: 0 };
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params =>{
@@ -44,7 +50,7 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
         movieId: this.id,
         team: user!.team,
         review: form.value.review,
-        rating: form.value.rating
+        rating: this.review.rating
       }
       this.reviewService.addReview(review);
     }

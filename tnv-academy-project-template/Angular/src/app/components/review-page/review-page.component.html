@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class=" col-md-6">
-      <mat-card class="example-card ">
+    <div class="col-md-6">
+      <mat-card class="example-card">
         <mat-card-header>
           <div mat-card class="example-header-image"></div>
           <mat-card-title>{{visualisedMovie.title}}</mat-card-title>
@@ -17,32 +17,27 @@
         <div class="mt-5"></div>
         <div class="descrizione">
           <h2 class="mb-4">DESCRIZIONE</h2>
-
           <p>{{visualisedMovie.overview}}</p>
-
         </div>
-        <div class="row col- mt-5">
-          <div >
-            <h2>Rate</h2>
+        <div class="row mt-5">
+          <div class="col">
+            <form #f="ngForm" (ngSubmit)="createReview($event, f)">
+              <div class="form-group">
+                <label for="rating">Rating:</label>
+                <ngb-rating [max]="5" [(rate)]="review.rating"></ngb-rating>
+                <input type="hidden" name="rating" [value]="review.rating">
+              </div>
+              <mat-form-field class="full-width-input">
+                <mat-label class="label" for="review">Leave a review</mat-label>
+                <textarea matInput placeholder="Your comment..." ngModel name="review"></textarea>
+              </mat-form-field>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary col-3 mx-5">Add review</button>
+              </div>
+            </form>
           </div>
-          <td><ngb-rating [max]="5"></ngb-rating></td>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="cont-cent">
-    <div class="row">
-      <form #f="ngForm" (ngSubmit)="createReview($event, f)">
-        <mat-form-field class="full-width-input">
-          <mat-label class="label" for="review">Leave a review</mat-label>
-          <textarea matInput placeholder="Your comment..." ngModel name="review"></textarea>
-        </mat-form-field>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary col-3 mx-5"> Add review</button>
-        </div>
-      </form>
     </div>
   </div>
 </div>
