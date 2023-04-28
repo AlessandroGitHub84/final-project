@@ -33,11 +33,9 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
     })
   }
   createReview(event: Event, form: NgForm){
-    console.log("mi hai chiamato?")
     event.preventDefault()
     form.control.markAllAsTouched();
     if (form.valid) {
-      console.log("si ho aggiunto il contenuto del form");
       let userComeStringa= localStorage.getItem("user");
       let user: User;
         user = JSON.parse(userComeStringa!)
