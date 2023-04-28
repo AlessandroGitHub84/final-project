@@ -15,9 +15,13 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
-    public String addUser(User user) {
+    public String addUser(User user) throws UsernameAlreadyExistsException {
+        User testUser = (User) userDAO.findByUsernameContains(user.getUsername());
+        if (testUser != null) {
+            throw new UsernameAlreadyExistsException("Username already exists in the database.");
+        }
         User resultUser = userDAO.save(user);
-        if (resultUser != null) {
+        if (resultUser != null ) {
             return "Utente salvato correttamente";
         } else {
             return "Errore nel salvataggio dell'utente";
@@ -51,19 +55,19 @@ public class UserService {
             return "Utente cancellato correttamente";
         }
     }
-    public User login(User user) {
-        // Controlla se l'utente esiste nel database
+    public User login(User user) throws InvalidUsernameException, InvalidPasswordException {
+        // Check if the user exists in the database
         User dbUser = (User) userDAO.findByUsernameContains(user.getUsername());
-//        if (dbUser == null) {
-//            return "Nome utente o password errati";
-//        }
-//
-//        // Verifica la password
-//        if (!user.getPassword().equals(dbUser.getPassword())) { //oppure user.getPassword() != dbUser.getPassword
-//            return "Nome utente o password errati";
-//        }
+        if (dbUser == null) {
+            throw new InvalidUsernameException("Username not found");
+        }
 
-        // Restituisce un messaggio di successo
+        // Verify the password
+        if (!user.getPassword().equals(dbUser.getPassword())) {
+            throw new InvalidPasswordException("Incorrect password");
+        }
+
+        // Return the user object if the authentication succeeds
         return dbUser;
     }
 
