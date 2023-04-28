@@ -1,6 +1,6 @@
 import Review from "../models/review.js";
 
-export const getReviews = async (res) => {
+export const getReviews = async (req,res) => {
     try {
         const review = await Review.findAll({
             
