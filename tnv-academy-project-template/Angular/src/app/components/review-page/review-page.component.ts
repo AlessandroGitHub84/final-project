@@ -6,6 +6,7 @@ import { ReviewService } from "src/app/@shared/services/review.service";
 import { NgForm } from "@angular/forms";
 import {User} from "src/app/models/user";
 import {Review} from "src/app/models/review";
+import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({
   selector: 'tnv-review-page',
@@ -26,7 +27,7 @@ public visualisedMovie = {
   id:""
 };
 
-constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router,
+constructor(private authService: AuthService, private route: ActivatedRoute, private http: HttpClient, private router: Router,
   private reviewService: ReviewService) {}
 
   review: Review = { userId:0,
@@ -36,6 +37,7 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
     rating: 0 };
 
   ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
     this.sub = this.route.params.subscribe(params =>{
       this.id = +params["id"];
       this.getMovie();

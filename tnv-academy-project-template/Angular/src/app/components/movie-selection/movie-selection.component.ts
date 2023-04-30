@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({
   selector: 'tnv-movie-selection',
@@ -9,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MovieSelectionComponent implements OnInit {
   // definizione variabili del componente
+  currentUser: Partial<User> = {};
   movieSelectionIndex = 0;
   public visualisedMovie = {
     title: "",
@@ -18,7 +21,7 @@ export class MovieSelectionComponent implements OnInit {
     id:""
   };
   movieSelection = [];
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private authService: AuthService, private http: HttpClient, private router: Router) {
 
   }
   getRandomMovie() {
@@ -58,6 +61,7 @@ export class MovieSelectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
     this.getRandomMovie();
   }
 
