@@ -62,7 +62,8 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
       }
       if (!this.isReviewValid(form.value.review)) {
        console.log('The review must be at least 50 words long.') ;
-      } else{ this.reviewService.addReview(review);}
+      } 
+       this.reviewService.addReview(review);
     }
   }
 

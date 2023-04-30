@@ -22,6 +22,7 @@ export class AuthService {
   }
 
   register(registerData: RegisterDTO) {
+    console.log("i am here")
     this.http.post(
       "/auth/users/",
       registerData,
