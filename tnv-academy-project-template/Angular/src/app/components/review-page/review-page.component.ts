@@ -41,11 +41,7 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
       this.getMovie();
     })
   }
-  isReviewValid(review : string) {
-    const words = review.trim().split(' ');
-    return words.length >= 50;
-  }
-  
+
   createReview(event: Event, form: NgForm){
     event.preventDefault()
     form.control.markAllAsTouched();
@@ -60,9 +56,7 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
         review: form.value.review,
         rating: this.review.rating
       }
-      if (!this.isReviewValid(form.value.review)) {
-       console.log('The review must be at least 50 words long.') ;
-      } 
+   
        this.reviewService.addReview(review);
     }
   }
