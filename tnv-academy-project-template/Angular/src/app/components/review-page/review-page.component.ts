@@ -13,6 +13,8 @@ import {Review} from "src/app/models/review";
   styleUrls:['./review-page.component.scss']
 })
 export class ReviewPageComponent implements OnInit, OnDestroy {
+
+  currentUser: Partial<User> = {};
   
 id: number = 0;
 private sub: any;
@@ -26,6 +28,7 @@ public visualisedMovie = {
 
 constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router,
   private reviewService: ReviewService) {}
+
   review: Review = { userId:0,
     movieId:0,
     team: "",
@@ -38,6 +41,11 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
       this.getMovie();
     })
   }
+  isReviewValid(review : string) {
+    const words = review.trim().split(' ');
+    return words.length >= 50;
+  }
+  
   createReview(event: Event, form: NgForm){
     event.preventDefault()
     form.control.markAllAsTouched();
@@ -52,9 +60,12 @@ constructor(private route: ActivatedRoute, private http: HttpClient, private rou
         review: form.value.review,
         rating: this.review.rating
       }
-      this.reviewService.addReview(review);
+      if (!this.isReviewValid(form.value.review)) {
+       console.log('The review must be at least 50 words long.') ;
+      } else{ this.reviewService.addReview(review);}
     }
   }
+
   
   getMovie() {
     this.http

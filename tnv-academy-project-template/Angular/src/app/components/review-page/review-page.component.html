@@ -27,12 +27,19 @@
                 <ngb-rating [max]="5" [(rate)]="review.rating"></ngb-rating>
                 <input type="hidden" name="rating" [value]="review.rating">
               </div>
-              <mat-form-field class="full-width-input">
-                <mat-label class="label" for="review">Leave a review</mat-label>
-                <textarea matInput placeholder="Your comment..." ngModel name="review"></textarea>
-              </mat-form-field>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary col-3 mx-5">Add review</button>
+              <div [class.red]="currentUser.team==='RED'" [class.blue]="currentUser.team==='BLUE'" class="container">
+                <div class="cont-cent">
+                  <div class="row">
+                    <mat-form-field appearance="outline" class="custom-form-field" class="full-width-input">
+                      <mat-label class="label" for="review">Leave a review</mat-label>
+                      <textarea matInput placeholder="Your comment..." ngModel name="review"></textarea>
+                    </mat-form-field>
+                    <div class="d-flex justify-content-center">
+                      <button type="submit" class="btn col-3 mx-5 "> Add Review</button>
+                      <button type="submit" class="btn col-3 mx-5"> Select Movie</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
