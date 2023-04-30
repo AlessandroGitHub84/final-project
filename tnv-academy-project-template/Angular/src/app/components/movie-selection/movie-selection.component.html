@@ -1,5 +1,5 @@
 
-<div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+<div [class.red]="currentUser.team==='RED'" [class.blue]="currentUser.team==='BLUE'" class="d-flex align-items-center justify-content-center" style="height: 100vh;">
     <mat-card class="example-card col-15">
         <mat-card-header>
             <mat-card-title>{{visualisedMovie.title}}</mat-card-title>
@@ -14,17 +14,17 @@
         <mat-card-actions>
             <section>
                 <div class="col-12 col-md-6 p-4 p-md-6">
-                    <button mat-raised-button color="primary"(click)="previousMovie()" ><mat-icon>arrow_circle_left</mat-icon></button>
+                    <button class="button" mat-raised-button (click)="previousMovie()" ><mat-icon>arrow_circle_left</mat-icon></button>
                 </div>
             </section>
             <section>
                 <div class="col-12 col-md-6 p-4 p-md-6">
-                    <button mat-raised-button color="primary"(click)="reviewMovie()">Vota</button>
+                    <button class="button" mat-raised-button (click)="reviewMovie()">Vota</button>
                 </div>
             </section>
             <section>
                 <div class="col-12 col-md-9 p-4 p-md-6">
-                    <button mat-raised-button color="primary"(click)="nextMovie()" > <mat-icon>arrow_circle_right</mat-icon></button>
+                    <button class="button" mat-raised-button (click)="nextMovie()" > <mat-icon>arrow_circle_right</mat-icon></button>
                 </div>
             </section>
 
