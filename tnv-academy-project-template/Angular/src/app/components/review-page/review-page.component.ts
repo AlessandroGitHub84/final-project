@@ -47,7 +47,8 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
     const words = review.trim().split(' ');
     return words.length >= 50;
   }
-  
+
+
   createReview(event: Event, form: NgForm){
     event.preventDefault()
     form.control.markAllAsTouched();
@@ -63,8 +64,10 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
         rating: this.review.rating
       }
       if (!this.isReviewValid(form.value.review)) {
-       console.log('The review must be at least 50 words long.') ;
-      } else{ this.reviewService.addReview(review);}
+        console.log('The review must be at least 50 words long.') ;
+       } 
+ 
+       this.reviewService.addReview(review);
     }
   }
 
