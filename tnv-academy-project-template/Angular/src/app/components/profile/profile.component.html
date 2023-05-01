@@ -2,61 +2,60 @@
   <div class="username row">
     <div class="col-10">
       <span class="line" style="text-align: left;">Username: </span><span class="line">{{ currentUser.username }}</span>
-      
+
     </div>
     <div class="col-2">
-      <span class="line" style="text-align: right;">Punti totali: </span><span class="line"> 156</span>
+      <span class="line" style="text-align: right;">Punti totali: </span><span class="line"> {{ reviews.length }}</span>
     </div>
-    </div>
+  </div>
 
-    <div class="row">
-  
-      <div class="profile col-5">
-        <h5>Profilo giocatore</h5><br />
-        <span class="profile-data">Nome</span>: <span>{{ currentUser.name }}</span><br />
-        <span class="profile-data">Cognome</span>: <span>{{ currentUser.surname }}</span><br />
-        <span class="profile-data">Film recensiti</span>: <span>{{ reviews.length }}</span><br />
-  
-        <div id="logout-space" class="logout">
-          <button class="btn-mod" mat-raised-button >Modifica</button>
-          <tnv-logout class="mt-3" style="margin-left: 20px;"></tnv-logout>
-  
-        </div>
-        
+  <div class="row">
+
+    <div class="profile col-5">
+      <h5>Profilo giocatore</h5><br />
+      <span class="profile-data">Nome</span>: <span>{{ currentUser.name }}</span><br />
+      <span class="profile-data">Cognome</span>: <span>{{ currentUser.surname }}</span><br />
+      <span class="profile-data">Film recensiti</span>: <span>{{ reviews.length }}</span><br />
+
+      <div id="logout-space" class="logout">
+        <tnv-logout class="mt-3" style="margin-left: 20px;"></tnv-logout>
+
+      </div>
+
     </div>
     <div class="play col-6">
-      <a href="../movie-selection/"><button href mat-raised-button  class="button">Play</button></a>
+      <a href="../movie-selection/"><button href mat-raised-button class="button">Play</button></a>
     </div>
   </div>
-  
-    <div class=" tab row" style="margin-top: 50px; text-align: center;">
-          <span class="reviews">Le tue recensioni</span>
-          <div class="col-12" style="margin-top: 30px; text-align: center;">
-            <table class="table table">
-              <thead class="tablehead">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Titolo</th>
-                  <th scope="col">Voto</th>
-                  <th scope="col">Commento</th>
-                </tr>
-              </thead>
-              <tbody style=" text-align: left;">
-  
-  
-                <tr *ngFor="let review of reviews">
-                  <td>{{review.id}}</td>
-                  <td>{{review.title}}</td>
-                  <td>{{review.rating}}</td>
-                  <td>{{review.review}}</td>
-                  <button mat-button (click)="deleteReview(review.id!)">Elimina</button>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-  
-        </div>
 
+  <div class=" tab row" style="margin-top: 50px; text-align: center;">
+    <span class="reviews">Le tue recensioni</span>
+    <div class="col-12" style="margin-top: 30px; text-align: center;">
+      <table class="table table">
+        <thead class="tablehead">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titolo</th>
+            <th scope="col">Voto</th>
+            <th scope="col">Commento</th>
+          </tr>
+        </thead>
+        <tbody style=" text-align: left;">
+
+
+          <tr *ngFor="let review of reviews">
+            <td>{{review.id}}</td>
+            <td>{{review.title}}</td>
+            <td>{{review.rating}}</td>
+            <td>{{review.review}}</td>
+            <button mat-button (click)="deleteReview(review.id!)">Delete</button>
+            <button mat-button [routerLink]="['/update/',review.movieId]">Update</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
-  
+
+
+</div>

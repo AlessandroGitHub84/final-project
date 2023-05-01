@@ -14,14 +14,18 @@ const Review = db.define('review', {
     type: DataTypes.STRING
   },
   review: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING(10000)
   },
   team: {
     type: DataTypes.STRING
   },
   rating: {
     type: DataTypes.INTEGER
+  },
+  title: {
+    type: DataTypes.STRING
   }
+
 },
  {
   freezeTableName: true

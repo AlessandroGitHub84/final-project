@@ -18,6 +18,7 @@ import { AngularMaterialModule } from './@shared/modules/angular-material/angula
 import { MovieSelectionComponent } from './components/movie-selection/movie-selection.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
+import {UpdateReviewPageComponent} from './components/update-review-page/update-review-page.component';
 import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatInputModule} from '@angular/material/input';
     ProfileComponent,
     RankingsComponent,
     MovieSelectionComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    UpdateReviewPageComponent
   ],
   imports:[
     BrowserModule,

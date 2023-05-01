@@ -9,26 +9,27 @@ import { Review } from 'src/app/models/review';
 })
 export class RankingsComponent implements OnInit {
 
-  reviews: Review[] = [];
-  redReviews: Review[] = [];
-  blueReviews: Review[] = [];
+  // Dichiarazione delle variabili
+  reviews: Review[] = []; // lista di recensioni
+  redReviews: Review[] = []; // lista di recensioni del team RED
+  blueReviews: Review[] = []; // lista di recensioni del team BLUE
 
   constructor(private reviewService: ReviewService) { }
 
   ngOnInit(): void {
-    this.getReviews();
+    this.getReviews(); // quando il componente viene inizializzato, richiama la funzione getReviews()
   }
 
+  // Funzione che ottiene le recensioni e le divide in base al team (RED o BLUE)
   getReviews() {
     this.reviewService.getReviewsById().subscribe({
       next:
         (response: Review[]) => {
-          this.reviews = response;
+          this.reviews = response; // la lista di recensioni viene aggiornata con quelle ottenute dal servizio
           console.log(this.reviews);
-          this.blueReviews = this.reviews.filter((x) => x.team === 'BLUE');
-          this.redReviews = this.reviews.filter((y) => y.team === 'RED');
+          this.blueReviews = this.reviews.filter((x) => x.team === 'BLUE'); // la lista delle recensioni del team BLUE è ottenuta filtrando quelle con team uguale a 'BLUE'
+          this.redReviews = this.reviews.filter((y) => y.team === 'RED'); // la lista delle recensioni del team RED è ottenuta filtrando quelle con team uguale a 'RED'
         }
     })
   }
 }
-  

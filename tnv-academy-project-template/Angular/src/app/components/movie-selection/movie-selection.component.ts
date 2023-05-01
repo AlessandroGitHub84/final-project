@@ -21,9 +21,11 @@ export class MovieSelectionComponent implements OnInit {
     id:""
   };
   movieSelection = [];
+  
   constructor(private authService: AuthService, private http: HttpClient, private router: Router) {
-
   }
+
+  // metodo per ottenere un film random dalla nostra API
   getRandomMovie() {
     this.http
       .get(
@@ -41,6 +43,7 @@ export class MovieSelectionComponent implements OnInit {
       });
   }
 
+  // metodo per andare al film successivo nella lista
   nextMovie(){
     if (this.movieSelectionIndex == 9){
       this.movieSelectionIndex = 0;
@@ -48,6 +51,7 @@ export class MovieSelectionComponent implements OnInit {
    this.visualisedMovie= this.movieSelection[this.movieSelectionIndex];
   }
 
+  // metodo per andare al film precedente nella lista
   previousMovie(){
     if (this.movieSelectionIndex == 0){
       this.movieSelectionIndex = 9;
@@ -55,6 +59,7 @@ export class MovieSelectionComponent implements OnInit {
    this.visualisedMovie= this.movieSelection[this.movieSelectionIndex];
   }
 
+  // metodo per passare alla pagina di recensione del film
   reviewMovie(){
     this.router.navigate(["/reviews", this.visualisedMovie.id]);
     console.log ();
@@ -66,3 +71,4 @@ export class MovieSelectionComponent implements OnInit {
   }
 
 }
+

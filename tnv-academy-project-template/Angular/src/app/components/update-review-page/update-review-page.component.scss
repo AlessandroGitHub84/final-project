@@ -1,0 +1,129 @@
+.card {
+  
+  box-shadow: -5px 0 5px -5px rgba(167, 156, 156, 0.75), 5px 0 5px -5px rgba(0, 0, 0, 0.75);
+  padding: 0px;
+}
+
+.header-image {
+
+  background-image: url('https://www.skuola.net/news_foto/2018/tema-cinema.jpg');
+  background-size: cover;
+  display: flex;
+  
+}
+
+.container2 h2 {
+  color: black;
+  font-size: 49px;
+  text-align: center;
+  font-family: 'Roboto' sans-serif;
+  text-shadow: 2px 2px 4px rgb(65, 61, 61);
+}
+
+
+.container2 {
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  padding-top: 30px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 20px;
+  font-family: 'Roboto', cursive;
+  color: black;
+  height: 680px;
+  list-style-type: none;
+  height: auto;
+  align-items: center;
+  word-wrap: break-word;
+  white-space: pre-wrap
+}
+
+
+
+ul {
+  list-style-type: none;
+}
+
+td,
+ngb-rating {
+  font-size: 50px;
+  color: rgb(171, 171, 47);
+}
+
+.container {
+  padding: 20px;
+
+}
+
+.recensione {
+  justify-content: center;
+
+
+}
+
+.recensione h2 {
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+}
+
+.mat-card {
+  box-shadow: none;
+}
+
+.example-full-width {
+  max-width: 100%;
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.cont-cent {
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.buttom {
+  justify-content: center;
+  align-items: center;
+}
+
+.v {
+  color: black;
+}
+
+.descrizione {
+  height: 300px;
+}
+
+.vota {
+  color: black;
+  justify-content: center;
+}
+
+
+.custom-form-field.mat-form-field-appearance-outline .mat-form-field-flex {
+  height: 60px;
+}
+
+
+.red{
+
+.btn{
+ color: whitesmoke;
+  background-color: #9e143e;
+}
+
+}
+
+.blue{
+
+  .btn{
+    color: whitesmoke;
+    background-color: #3e61a1;
+  }
+  
+}

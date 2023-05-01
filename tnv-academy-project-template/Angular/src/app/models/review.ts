@@ -4,6 +4,6 @@ export interface Review {
     title: string,
     movieId: number,
     team: string,
-   review: string,
-   rating: number
+    review: string,
+    rating: number
 }

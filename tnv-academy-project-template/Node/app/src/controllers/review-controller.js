@@ -1,9 +1,10 @@
 import Review from "../models/review.js";
 
+// Restituisce tutte le recensioni
 export const getReviews = async (req,res) => {
     try {
         const review = await Review.findAll({
-            
+            // non vengono specificati filtri di ricerca
         });
         
         if (review) {
@@ -17,6 +18,7 @@ export const getReviews = async (req,res) => {
     }
 }
 
+// Restituisce una specifica recensione
 export const getReview = async (req, res) => {
     try {
         const review = await Review.findOne({
@@ -37,12 +39,13 @@ export const getReview = async (req, res) => {
     }
 }
 
+// Crea una nuova recensione
 export const createReview = async (req, res) => {
     try {
         const review = await Review.create(req.body);
         console.log(req.body)
         res.json({
-            "message": "Review Created",
+            "message": "Recensione creata",
             data: review
         });
     } catch (err) {
@@ -51,6 +54,7 @@ export const createReview = async (req, res) => {
     }
 }
 
+// Aggiorna una specifica recensione
 export const updateReview = async (req, res) => {
     try {
         const review = await Review.update(req.body, {
@@ -59,7 +63,7 @@ export const updateReview = async (req, res) => {
             }
         });
         res.json({
-            "message": "Review Updated",
+            "message": "Recensione aggiornata",
             data: rating
         });
     } catch (err) {
@@ -68,6 +72,7 @@ export const updateReview = async (req, res) => {
     }
 }
 
+// Elimina una specifica recensione
 export const deleteReview = async (req, res) => {
     try {
         await Review.destroy({
@@ -76,7 +81,7 @@ export const deleteReview = async (req, res) => {
             }
         });
         res.json({
-            "message": "Review Deleted"
+            "message": "Recensione eliminata"
         });
     } catch (err) {
         console.log(err);

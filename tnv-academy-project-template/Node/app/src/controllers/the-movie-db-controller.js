@@ -1,8 +1,9 @@
-import * as http from 'http'
+import * as http from 'http';
 
+// Numero di film casuali da estrarre dall'API
+const numero = 10;
 
-var numero = 10;
-
+// Funzione per estrarre un array di elementi unici da un array dato
 function getElementsFromArray(arr, numero) {
   var result = [];
   while (result.length < numero) {
@@ -14,8 +15,8 @@ function getElementsFromArray(arr, numero) {
   return result;
 }
 
+// Funzione per ottenere un array di film casuali dall'API di themoviedb
 export const getRandomMovies = async (req, res) => {
-
   const options = {
     hostname: 'api.themoviedb.org',
     path: '/3/movie/popular?api_key=94dac72dbc411b43b664a6cf6202f2a2',
@@ -28,68 +29,68 @@ export const getRandomMovies = async (req, res) => {
   let data = '';
 
   const request = http.request(options, (response) => {
-    // Set the encoding, so we don't get log to the console a bunch of gibberish binary data
+    // Imposta la codifica in utf8 per evitare di ricevere dati binari
     response.setEncoding('utf8');
 
-    // As data starts streaming in, add each chunk to "data"
+    // Aggiunge ogni chunk di dati ricevuto alla variabile "data"
     response.on('data', (chunk) => {
       data += chunk;
     });
 
-    // The whole response has been received. Print out the result.
+    // L'intera risposta è stata ricevuta, elabora il risultato
     response.on('end', () => {
       var selection = getElementsFromArray(((JSON.parse(data)).results), numero);
       res.send(selection);
     });
   });
 
-  // Log errors if any occur
+  // Stampa gli errori se ce ne sono
   request.on('error', (error) => {
     console.error(error);
     res.sendStatus(error);
   });
-  // End the request
+
+  // Conclude la richiesta
   request.end();
-
-}
-
-export const getMovie = async (req, res) => {
-  
-const options = {
-  hostname: 'api.themoviedb.org',
-  path: '/3/movie/'+req.params.id+'?api_key=94dac72dbc411b43b664a6cf6202f2a2',
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
 };
+
+// Funzione per ottenere i dettagli di un film specifico dall'API di themoviedb
+export const getMovie = async (req, res) => {
+  const options = {
+    hostname: 'api.themoviedb.org',
+    path: '/3/movie/'+req.params.id+'?api_key=94dac72dbc411b43b664a6cf6202f2a2',
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
 
   let data = '';
 
   const request = http.request(options, (response) => {
-    // Set the encoding, so we don't get log to the console a bunch of gibberish binary data
+    // Imposta la codifica in utf8 per evitare di ricevere dati binari
     response.setEncoding('utf8');
 
-    // As data starts streaming in, add each chunk to "data"
+    // Aggiunge ogni chunk di dati ricevuto alla variabile "data"
     response.on('data', (chunk) => {
       data += chunk;
     });
 
-    // The whole response has been received. Print out the result.
+    // L'intera risposta è stata ricevuta, elabora il risultato
     response.on('end', () => {
       res.send(data);
     });
   });
 
-  // Log errors if any occur
+  // Stampa gli errori se ce ne sono
   request.on('error', (error) => {
     console.error(error);
     res.sendStatus(error);
   });
-  // End the request
-  request.end();
 
-}
+  // Conclude la richiesta
+  request.end();
+};
 
 
 

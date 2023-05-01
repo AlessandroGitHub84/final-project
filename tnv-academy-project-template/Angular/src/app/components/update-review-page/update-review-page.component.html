@@ -21,7 +21,7 @@
         </div>
         <div class="row mt-5">
           <div class="col">
-            <form #f="ngForm" (ngSubmit)="createReview($event, f)">
+            <form #f="ngForm" (ngSubmit)="updateReview($event, f)">
               <div class="form-group">
                 <label for="rating">Rating:</label>
                 <ngb-rating [max]="5" [(rate)]="review.rating"></ngb-rating>
@@ -32,11 +32,11 @@
                   <div class="row">
                     <mat-form-field appearance="outline" class="custom-form-field" class="full-width-input">
                       <mat-label class="label" for="review">Leave a review</mat-label>
-                      <textarea matInput placeholder="Your comment..." ngModel name="review"></textarea>
+                      <textarea matInput placeholder="Your comment..." (ngModel)="review.review" name="review" [value]="review.review"></textarea>
                     </mat-form-field>
                     <div class="d-flex justify-content-center">
-                      <button type="submit" class="btn col-3 mx-5 "> Add Review</button>
-                      <button routerLink="/reviews/:id" type="submit" class="btn col-3 mx-5"> Select Movie</button>
+                      <button type="submit" class="btn col-3 mx-5 "> Update Review</button>
+                      <button routerLink="/profile" type="submit" class="btn col-3 mx-5"> Back</button>
                     </div>
                   </div>
                 </div>
