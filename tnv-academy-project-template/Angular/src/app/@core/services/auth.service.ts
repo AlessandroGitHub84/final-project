@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { of } from "rxjs";
+import { Observable, of } from "rxjs";
 import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
 
 @Injectable({
@@ -22,7 +22,6 @@ export class AuthService {
   }
 
   register(registerData: RegisterDTO) {
-    console.log("i am here")
     this.http.post(
       "/auth/users/",
       registerData,
@@ -36,6 +35,10 @@ export class AuthService {
 
   isAuthenticated() {
     return !!localStorage.getItem("user");
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.springBootUrl}/auth/users/`);
   }
 
   getCurrentUser() {

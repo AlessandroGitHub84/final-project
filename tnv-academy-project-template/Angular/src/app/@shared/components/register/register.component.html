@@ -54,10 +54,11 @@
             <div class="mx-4">
               <div class="form-group">
                 <mat-chip-listbox required [ngModel] name="team" #team="ngModel" aria-label="Fish selection">
-                  <mat-chip-option class=" mx-3" id="team" name = "RED" ><span class="team-label">RED</span></mat-chip-option>
-                  <mat-chip-option color="accent" class=" mx-4 blue"id="team" name = "BLUE" ><span
-                      class="team-label">BLUE</span></mat-chip-option>
-                </mat-chip-listbox>
+                  <mat-chip-option  class=" mx-3" id="team" 
+                  name="RED"><span class="team-label">RED</span></mat-chip-option>
+                  <mat-chip-option color="accent" class=" mx-4 blue" id="team"
+                   name="BLUE"><span class="team-label">BLUE</span></mat-chip-option>
+                </mat-chip-listbox>                
                 <small [style.visibility]="
                 team.invalid && (team.dirty || team.touched)
                   ? 'visible'
