@@ -1,4 +1,4 @@
-<div class="container">
+<div [class.red]="currentUser.team==='RED'" [class.blue]="currentUser.team==='BLUE'" class="container">
   <div class="username row">
     <div class="col-10">
       <span class="profile-data" style="text-align: left;">Username: </span><span>{{ currentUser.username }}</span>
@@ -18,18 +18,18 @@
         <span class="profile-data">Film recensiti</span>: <span>{{ reviews.length }}</span><br />
   
         <div id="logout-space" class="logout">
-          <button mat-raised-button color="primary">Modifica</button>
+          <button class="btn-mod" mat-raised-button >Modifica</button>
           <tnv-logout class="mt-3" style="margin-left: 20px;"></tnv-logout>
   
         </div>
         
     </div>
     <div class="play col-6">
-      <button mat-raised-button color="primary" class="button">Play</button>
+      <a href="../movie-selection/"><button href mat-raised-button  class="button">Play</button></a>
     </div>
   </div>
   
-    <div class="row" style="margin-top: 50px; text-align: center;">
+    <div class=" tab row" style="margin-top: 50px; text-align: center;">
           <span class="reviews">Le tue recensioni</span>
           <div class="col-12" style="margin-top: 30px; text-align: center;">
             <table class="table table">
