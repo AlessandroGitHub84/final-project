@@ -17,8 +17,6 @@ export class RankingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getReviews();
-    this.blueReviews = this.reviews.filter((x) => x.team === 'BLUE');
-    this.redReviews = this.reviews.filter((y) => y.team === 'RED');
   }
 
   getReviews() {
@@ -27,6 +25,8 @@ export class RankingsComponent implements OnInit {
         (response: Review[]) => {
           this.reviews = response;
           console.log(this.reviews);
+          this.blueReviews = this.reviews.filter((x) => x.team === 'BLUE');
+          this.redReviews = this.reviews.filter((y) => y.team === 'RED');
         }
     })
   }

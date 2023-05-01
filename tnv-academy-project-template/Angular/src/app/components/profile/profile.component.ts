@@ -45,5 +45,11 @@ export class ProfileComponent implements OnInit {
         }
     })
   }
+
+  deleteReview(id: string){
+    this.reviewService.deleteReview(id).subscribe({
+      next: () => this.reviews = this.reviews.filter( (x) => x.id !== id)
+    });
+  }
 }
 

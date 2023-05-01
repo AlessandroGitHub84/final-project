@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let redreview of reviews">
+        <tr *ngFor="let redreview of redReviews">
           <td>{{redreview.id}}</td>
           <td>{{redreview.title}}</td>
           <td>{{redreview.rating}}</td>
@@ -43,7 +43,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let redreview of reviews">
+      <tr *ngFor="let redreview of blueReviews">
         <td>{{redreview.id}}</td> 
         <td>{{redreview.title}}</td>
         <td>{{redreview.rating}}</td>

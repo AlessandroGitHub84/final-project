@@ -1,11 +1,11 @@
 <div [class.red]="currentUser.team==='RED'" [class.blue]="currentUser.team==='BLUE'" class="container">
   <div class="username row">
     <div class="col-10">
-      <span class="profile-data" style="text-align: left;">Username: </span><span>{{ currentUser.username }}</span>
+      <span class="line" style="text-align: left;">Username: </span><span class="line">{{ currentUser.username }}</span>
       
     </div>
     <div class="col-2">
-      <span class="profile-data" style="text-align: right;">Punti totali: </span><span> 156</span>
+      <span class="line" style="text-align: right;">Punti totali: </span><span class="line"> 156</span>
     </div>
     </div>
 
@@ -49,6 +49,7 @@
                   <td>{{review.title}}</td>
                   <td>{{review.rating}}</td>
                   <td>{{review.review}}</td>
+                  <button mat-button (click)="deleteReview(review.id!)">Elimina</button>
                 </tr>
               </tbody>
             </table>
