@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
       next:
         (response: Review[]) => {
           this.reviews = response.filter((x) => x.userId == this.currentID);
-          console.log(this.reviews);
+          
         }
     })
   }
