@@ -7,6 +7,9 @@ const Review = db.define('review', {
   userId: {
     type: DataTypes.STRING
   },
+  title: {
+    type: DataTypes.STRING
+  },
   movieId: {
     type: DataTypes.STRING
   },

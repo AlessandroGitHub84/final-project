@@ -1,153 +1,59 @@
-<div class="row-2">
-  <h1>Classifica squadre</h1>
-
-  <div class="col-12"id="film-bar">
-    <h2>Squadra RED</h2>
-    <table class="table" id="ranking">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Titolo</th>
-          <th scope="col">Anno</th>
-          <th scope="col">Voto</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Il padrino</td>
-          <td>1972</td>
-          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>I predatori dell'arca perduta</td>
-          <td>1981</td>
-          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>L'Impero colpisce ancora</td>
-          <td>1980</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Le Ali della libertà</td>
-          <td>1994</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>Lo Squalo</td>
-          <td>1975</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td>Quei Bravi Ragazzi</td>
-          <td>1990</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <td>Apocalypse Now</td>
-          <td>1979</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">8</th>
-          <td>Cantando sotto la pioggia</td>
-          <td>1952</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">9</th>
-          <td>Pulp Fiction</td>
-          <td>1994</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">10</th>
-          <td>Fight Club</td>
-          <td>1999</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="col-12"id="film-bar2">
-      <h2>Squadra BLUE</h2>
-    <table class="table" id="ranking2">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Titolo</th>
-          <th scope="col">Anno</th>
-          <th scope="col">Voto</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Il padrino</td>
-          <td>1972</td>
-          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>I predatori dell'arca perduta</td>
-          <td>1981</td>
-          <td><ngb-rating [rate]="5" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>L'Impero colpisce ancora</td>
-          <td>1980</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Le Ali della libertà</td>
-          <td>1994</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>Lo Squalo</td>
-          <td>1975</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td>Quei Bravi Ragazzi</td>
-          <td>1990</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <td>Apocalypse Now</td>
-          <td>1979</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">8</th>
-          <td>Cantando sotto la pioggia</td>
-          <td>1952</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">9</th>
-          <td>Pulp Fiction</td>
-          <td>1994</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-        <tr>
-          <th scope="row">10</th>
-          <td>Fight Club</td>
-          <td>1999</td>
-          <td><ngb-rating [rate]="4" [max]="5"></ngb-rating></td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container" >
+  <div class="username row">
+  <h4>Classifica</h4>
   </div>
+  <div class="col-12">
+    <div class="table row">
+  
+    <h5>Squadra Red</h5>
+    <table class="ranking table">
+      <thead class="tablehead">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titolo</th>
+          <th scope="col">Voto</th>
+          <th scope="col">Punti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let redreview of reviews">
+          <td>{{redreview.id}}</td>
+          <td>{{redreview.title}}</td>
+          <td>{{redreview.rating}}</td>
+          <td>{{redreview.review}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+  <div class="table row">
+
+  <h5>Squadra Blue</h5>
+  <table class="ranking table">
+ 
+    <thead class="tablehead">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titolo</th>
+        <th scope="col">Voto</th>
+        <th scope="col">Punti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let redreview of reviews">
+        <td>{{redreview.id}}</td> 
+        <td>{{redreview.title}}</td>
+        <td>{{redreview.rating}}</td>
+        <td>{{redreview.review}}</td>
+      
+      </tr>
+    </tbody>
+    
+  </table>
+</div>
+</div>
+</div>
+

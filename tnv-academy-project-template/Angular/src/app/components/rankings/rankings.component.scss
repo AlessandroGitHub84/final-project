@@ -1,47 +1,33 @@
-h1{
-    font-weight: 500;
-    margin-bottom: 70px;
+.container{
+  margin-top: 100px;
+  width: 1200px;
 }
 
-#film-bar{
-    width: 1000px;
-    height: 40px;
-    margin-bottom: 30px;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 5px;
-    background: rgb(150,10,44);
-    background: linear-gradient(90deg, rgba(150,10,44,1) 0%, rgba(150,10,44,0.6516981792717087) 97%);
-   }
+.table{
+  margin-top: 40px;
+  
+}
+
+.username{
+  margin-top: 100px;
+  padding: 0.5rem;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(242, 242, 242);
+    
+  }
    
-   #ranking{
-
-
-    width: 1000px;
-    height: 500px;
+   .ranking{
+    margin-left: 15px;
+    width: 800px;
+    border: 1.5px solid black;
+    padding: 0rem;
     margin-top: 40px;
-    margin-right: 5px;
     margin-bottom: 100px;
+    text-align: left;
   }
   
-  #film-bar2{
-    width: 1000px;
-    height: 40px;
-    margin-bottom: 30px;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 5px;
-    background: rgb(26, 10, 150);
-    background: linear-gradient(90deg, rgba(26, 10, 150) 0%, rgba(26, 10, 1500.6516981792717087) 97%);
-   }
-   
-   #ranking2{
-
-
-    width: 1000px;
-    height: 500px;
-    margin-top: 40px;
-    margin-right: 5px;
-    margin-bottom: 100px;
-  }
- 
+.tablehead{
+  background-color: rgb(221, 219, 219);
+  text-align: left;
+}

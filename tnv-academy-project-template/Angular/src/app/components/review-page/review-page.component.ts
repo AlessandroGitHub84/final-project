@@ -31,6 +31,7 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
   private reviewService: ReviewService) {}
 
   review: Review = { userId:0,
+    title: "",
     movieId:0,
     team: "",
     review: "",
@@ -58,6 +59,7 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
         user = JSON.parse(userComeStringa!)
       let review ={
         userId: user!.id,
+        title: this.visualisedMovie.title,
         movieId: this.id,
         team: user!.team,
         review: form.value.review,

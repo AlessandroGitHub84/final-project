@@ -1,94 +1,50 @@
-#logout-space{
-    text-align: right;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-  #profile-column{
-    margin-top: 20px;
-    width: 300px;
-  };
+.container{
+  margin-top: 100px;  
+  width: 1200px;
+  border-radius: 10px;
+}
+
+.username{
+  padding: 1rem;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(242, 242, 242);
     
-  #profile-column h2{
-    width: 300px;
-    height: 40px;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    background: rgb(150,10,44);
-  background: linear-gradient(90deg, rgba(150,10,44,1) 0%, rgba(150,10,44,0.6516981792717087) 97%);
-    display: block;
   }
   
-  .profile-data {
-      font-weight: 600; 
-  }
-  
-  #profile-text{
-    width: 300px;
-    border-radius: 5px;
-    border: 1.5px solid black;
-    padding: 0.5rem;
-  }
-  
-  .container {
-    width: 1200px;
-      margin-top: 80px;  
-    }
-  
-    #main{
-      text-align: right;
-      height: 100px;
-      border-radius: 5px;
-      margin-bottom: 100px;
-      background: rgb(150,10,44);
-  background: linear-gradient(90deg, rgba(150,10,44,1) 0%, rgba(150,10,44,0.6516981792717087) 97%);
-      
-    }
-  
-    #main h1{
-      color: white;
-      margin-top: 60px;
-    }
-  
-    #play {
-      display: flex;
-      text-align: center;
-      height: 200px;
-      margin-top: 80px;
-    }
-  
-  
-    #play button {
+  .profile{
+    height: 250px;
+    margin-top: 50px;  
+    border-radius: 10px;
+    background-color: rgb(242, 242, 242);
+    padding: 1.6rem;
+  };
+
+    .play button {
       width: 300px;
       height: 50px;
       border-radius: 10px;
       font-size: x-large;
       font-weight: bold;
       background: rgb(150,10,44);
-  background: linear-gradient(90deg, rgba(150,10,44,1) 0%, rgba(150,10,44,0.6516981792717087) 97%);
+      background: linear-gradient(90deg, rgba(150,10,44,1) 0%, rgba(150,10,44,0.6516981792717087) 97%);
      }
-  
-     #film{
-     
+
+     .reviews{
+      font-weight: bold;
      }
-  
-     #film-bar{
-      width: 800px;
-      height: 40px;
-      margin-bottom: 30px;
-      color: white;
-      padding: 0.5rem;
-      border-radius: 5px;
-      background: rgb(150,10,44);
-  background: linear-gradient(90deg, rgba(150,10,44,1) 0%, rgba(150,10,44,0.6516981792717087) 97%);
-     }
-  
-  
-    #ranking{
-      text-align: center;
-      width: 800px;
-      height: 500px;
-      margin-top: 20px;
-      margin-right: 5px;
-      margin-bottom: 100px;
+
+     .table{
+      border: 1.5px solid black;
     }
+
+    .button{
+      margin-left: 200px;
+      margin-top: 140px;
+    }
+
+    .tablehead{
+      background-color: rgb(221, 219, 219);
+      text-align: left;
+    }
+    

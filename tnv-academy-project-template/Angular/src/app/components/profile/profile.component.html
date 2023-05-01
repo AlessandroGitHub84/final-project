@@ -1,80 +1,61 @@
 <div class="container">
+  <div class="username row">
+    <div class="col-10">
+      <span class="profile-data" style="text-align: left;">Username: </span><span>{{ currentUser.username }}</span>
+      
+    </div>
+    <div class="col-2">
+      <span class="profile-data" style="text-align: right;">Punti totali: </span><span> 156</span>
+    </div>
+    </div>
 
-  <div class="row">
-    <div class="col-12" id="main">
-    <h1 style="font-weight: 600;">Punti totali: 000</h1>
-    
-      </div>
-      <div class="row">
-        <div class="col-4" id="profile-column">
-        <div class="col-12 mt-5">
-          
-          
-            <h2>Profilo giocatore</h2>
-            
-              <div class="col-12" id="profile-text">
-                <span class="profile-data">Nome</span>: <span>{{ currentUser.name }}</span
-                ><br />
-                <span class="profile-data">Cognome</span>: <span>{{ currentUser.surname }}</span
-                ><br />
-                <span class="profile-data">Username</span>: <span>{{ currentUser.username }}</span
-                ><br />
-                <span>Film recensiti</span>: <span>{{ reviews.length }}</span
-                  ><br />
-               <!-- <span class="ranking-data">Film recensiti</span>: <span>{{ numRecensioni }}</span
-                  ><br /> -->
-                
-              </div>
-              <div class="row" id="logout-space" style="text-align:  left;">
-                <tnv-logout class="mt-3"></tnv-logout>
-              </div>
-
-              </div> 
-          </div>
-
-          <div class="col-8">
-            <div class="row" id="play">
-              
-              <div>
-                
-                <div></div>
-                  <button mat-raised-button color="primary">Play</button>
-
-                  
-              </div>
-              
+    <div class="row">
+  
+      <div class="profile col-5">
+        <h5>Profilo giocatore</h5><br />
+        <span class="profile-data">Nome</span>: <span>{{ currentUser.name }}</span><br />
+        <span class="profile-data">Cognome</span>: <span>{{ currentUser.surname }}</span><br />
+        <span class="profile-data">Film recensiti</span>: <span>{{ reviews.length }}</span><br />
+  
+        <div id="logout-space" class="logout">
+          <button mat-raised-button color="primary">Modifica</button>
+          <tnv-logout class="mt-3" style="margin-left: 20px;"></tnv-logout>
+  
+        </div>
         
-            </div>
-            <div class="col-12"id="film-bar">
-                <div>
-                  <span class="profile-data">Film recensiti da </span><span>{{ currentUser.name }}</span>
-                  <div class="col-12">
-                    <table class="table" id="ranking">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Titolo</th>
-                          <th scope="col">Anno</th>
-                          <th scope="col">Voto</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                       
-                        <tr *ngFor="let review of reviews">
-                          <td>{{review.movieId}}</td>
-                          <td></td>
-                          <td>{{review.movieId}}</td>
-                          <td>{{review.review}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                
-                </div>
-               
-              </div>
-            </div>
-              
+    </div>
+    <div class="play col-6">
+      <button mat-raised-button color="primary" class="button">Play</button>
+    </div>
   </div>
-</div>
+  
+    <div class="row" style="margin-top: 50px; text-align: center;">
+          <span class="reviews">Le tue recensioni</span>
+          <div class="col-12" style="margin-top: 30px; text-align: center;">
+            <table class="table table">
+              <thead class="tablehead">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Titolo</th>
+                  <th scope="col">Voto</th>
+                  <th scope="col">Commento</th>
+                </tr>
+              </thead>
+              <tbody style=" text-align: left;">
+  
+  
+                <tr *ngFor="let review of reviews">
+                  <td>{{review.id}}</td>
+                  <td>{{review.title}}</td>
+                  <td>{{review.rating}}</td>
+                  <td>{{review.review}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+        </div>
+
+
+  </div>
+  

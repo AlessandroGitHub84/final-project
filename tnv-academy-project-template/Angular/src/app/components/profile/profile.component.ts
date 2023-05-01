@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 import { User } from 'src/app/models/user';
 import { Review } from 'src/app/models/review';
 import { ReviewService } from 'src/app/@shared/services/review.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tnv-profile',
@@ -15,6 +16,8 @@ export class ProfileComponent implements OnInit {
   currentUser: Partial<User> = {};
   reviews: Review[] = [];
   currentID = this.getID();
+
+  
 
   constructor(private authService: AuthService, private reviewService: ReviewService,
     private http: HttpClient) { }
@@ -31,6 +34,7 @@ export class ProfileComponent implements OnInit {
     user = JSON.parse(userString!);
     return user.id;
   }
+
 
   getReviews() {
     this.reviewService.getReviewsById().subscribe({
