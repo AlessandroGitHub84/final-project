@@ -4,13 +4,7 @@
   border-radius: 10px;
 }
 
-.username{
-  padding: 1rem;
-  height: 50px;
-  border-radius: 10px;
-  background-color: rgb(242, 242, 242);
-    
-  }
+
   
   .profile{
     height: 250px;
@@ -26,8 +20,8 @@
       border-radius: 10px;
       font-size: x-large;
       font-weight: bold;
-      background: rgb(150,10,44);
-      background: linear-gradient(90deg, rgba(150,10,44,1) 0%, rgba(150,10,44,0.6516981792717087) 97%);
+      
+     
      }
 
      .reviews{
@@ -35,7 +29,7 @@
      }
 
      .table{
-      border: 1.5px solid black;
+      border: 1.5px solid rgba(21, 20, 20, 0.336);
     }
 
     .button{
@@ -46,5 +40,49 @@
     .tablehead{
       background-color: rgb(221, 219, 219);
       text-align: left;
+    }
+
+    .red{
+
+      .username{
+        padding: 1rem;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #9e143e;
+          
+        }
+
+      .btn-mod{
+        color: whitesmoke;
+        background-color: #9e143e;
+      }
+
+      .play button{
+        color: whitesmoke;
+        background-color: #9e143e;
+      }
+    }
+
+    .blue{
+      
+      
+      .username{
+        padding: 1rem;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #3e61a1;
+        color: whitesmoke;
+          
+        }
+
+      .btn-mod{
+        color: whitesmoke;
+        background-color: #3e61a1;
+      }
+
+      .play button{
+        color: whitesmoke;
+        background-color: #3e61a1;
+      }
     }
     
