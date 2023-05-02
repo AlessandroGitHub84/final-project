@@ -1,15 +1,17 @@
 package com.tnvacademy.finalproject.controller;
 
 import  com.tnvacademy.finalproject.model.User;
-import com.tnvacademy.finalproject.service.InvalidPasswordException;
-import com.tnvacademy.finalproject.service.InvalidUsernameException;
+import com.tnvacademy.finalproject.service.AuthenticationException;
 import  com.tnvacademy.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping("/auth/users")
 public class UserController {
+
     private UserService userService;
 
     @Autowired
@@ -19,48 +21,51 @@ public class UserController {
 
     //CRUD operations (Create Read Update Delete)
 
+    // CREATE - Aggiungi nuovo utente
     @PostMapping("/")
-    public String addUser(@RequestBody User user) {
+    public User addUser(@RequestBody User user) {
         try {
             return userService.addUser(user);
+        } catch (ResponseStatusException e) {
+            throw e;
         } catch (Exception e) {
-            return "Errore nel salvataggio dell'utente";
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Errore nell'aggiunta dello user", e);
         }
     }
 
+    // READ - Leggi utente con id specifico
     @GetMapping("/{id}")
     public User getUserById(@PathVariable("id") int id) {
         return userService.getUser(id);
     }
 
-    //allUsers - GET
+    // READ - Leggi tutti gli utenti
     @GetMapping("/")
     public Iterable<User> allUsers() {
         return userService.allUsers();
     }
 
-    //updateUser - PUT
+    // UPDATE - Aggiorna utente con id specifico
     @PutMapping("/{id}")
     public String updateUser(@PathVariable("id") int id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
-    //deleteUser - DELETE
+    // DELETE - Cancella utente con id specifico
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         return userService.deleteUser(id);
     }
 
+    // LOGIN - Autenticazione utente
     @PostMapping("/login")
     public User loginUser(@RequestBody User user) {
         try {
             return userService.login(user);
-        } catch (InvalidUsernameException e) {
-            System.out.println("Incorrect username");
-        } catch (InvalidPasswordException e) {
-            System.out.println("Incorrect password");
+        } catch (AuthenticationException e) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage(), e);
         }
-        return null;
     }
 
-    }
+}
+

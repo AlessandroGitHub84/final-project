@@ -4,10 +4,13 @@ import com.tnvacademy.finalproject.dao.UserRepositoryDAO;
 import com.tnvacademy.finalproject.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class UserService {
+
     UserRepositoryDAO userDAO;
 
     @Autowired
@@ -15,27 +18,34 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
-    public String addUser(User user) throws UsernameAlreadyExistsException {
-        User testUser = (User) userDAO.findByUsernameContains(user.getUsername());
+    // Aggiunge un nuovo utente nel database
+    public User addUser(User user) {
+        // Verifica se l'utente è già presente nel database
+        User testUser = userDAO.findByUsernameContains(user.getUsername());
         if (testUser != null) {
-            throw new UsernameAlreadyExistsException("Username already exists in the database.");
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Username già presente nel database.");
         }
+
+        // Salva l'utente nel database
         User resultUser = userDAO.save(user);
-        if (resultUser != null ) {
-            return "Utente salvato correttamente";
+        if (resultUser != null) {
+            return resultUser;
         } else {
-            return "Errore nel salvataggio dell'utente";
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Errore nel salvataggio dello user.");
         }
     }
 
+    // Ottiene un utente dal database tramite l'ID
     public User getUser(int id) {
         return userDAO.findById(id).orElse(null);
     }
 
+    // Ottiene tutti gli utenti dal database
     public Iterable<User> allUsers() {
         return userDAO.findAll();
     }
 
+    // Aggiorna un utente nel database
     public String updateUser(int id, User user) {
         user.setId(id);
         User resultUser = userDAO.save(user);
@@ -46,6 +56,7 @@ public class UserService {
         }
     }
 
+    // Cancella un utente dal database tramite l'ID
     public String deleteUser(int id) {
         User user = userDAO.findById(id).orElse(null);
         if (user == null) {
@@ -55,21 +66,23 @@ public class UserService {
             return "Utente cancellato correttamente";
         }
     }
-    public User login(User user) throws InvalidUsernameException, InvalidPasswordException {
-        // Check if the user exists in the database
-        User dbUser = (User) userDAO.findByUsernameContains(user.getUsername());
+
+    // Effettua l'autenticazione dell'utente
+    public User login(User user) {
+        // Verifica se l'utente esiste nel database
+        User dbUser = userDAO.findByUsernameContains(user.getUsername());
         if (dbUser == null) {
-            throw new InvalidUsernameException("Username not found");
+            throw new AuthenticationException("Username not found");
         }
 
-        // Verify the password
+        // Verifica la password
         if (!user.getPassword().equals(dbUser.getPassword())) {
-            throw new InvalidPasswordException("Incorrect password");
+            throw new AuthenticationException("Incorrect password");
         }
 
-        // Return the user object if the authentication succeeds
+        // Restituisce l'oggetto utente se l'autenticazione ha successo
         return dbUser;
     }
-
 }
+
 
