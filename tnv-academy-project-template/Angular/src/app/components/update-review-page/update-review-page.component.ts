@@ -75,7 +75,7 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
       this.review.review= form.value.review,
       this.review.rating= this.review.rating
       if (!this.isReviewValid(form.value.review)) {
-        console.log('la review deve essere lunga almeno 50 parole') ;
+        alert('la review deve essere lunga almeno 50 parole') ;
        } 
  
        this.reviewService.updateReview(this.review);

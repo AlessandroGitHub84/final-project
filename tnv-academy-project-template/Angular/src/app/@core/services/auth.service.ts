@@ -24,16 +24,26 @@ export class AuthService {
     );
   }
 
-  // Metodo per effettuare la registrazione di un nuovo utente
   register(registerData: RegisterDTO) {
     // Effettua una richiesta POST al server back-end per registrare il nuovo utente
     this.http.post(
       "/auth/users/",
       registerData,
-   ).subscribe()
-    // Dopo aver effettuato la registrazione, reindirizza l'utente alla homepage
-    this.router.navigateByUrl("/");
+    ).subscribe(
+      () => {
+        // Dopo aver effettuato la registrazione, reindirizza l'utente alla homepage
+        this.router.navigateByUrl("/");
+      },
+      (error) => {
+        if (error.status === 409) {
+          alert('Cannot register new user because username already exists in the database');
+        } else {
+          alert('Errore nel salvataggio dell\'utente');
+        }
+      }
+    );
   }
+
 
   // Metodo per effettuare il logout dell'utente
   logout() {

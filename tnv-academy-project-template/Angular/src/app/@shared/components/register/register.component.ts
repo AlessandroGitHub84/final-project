@@ -33,34 +33,40 @@ export class RegisterComponent implements OnInit {
   }
   
   register(event: Event, form: NgForm) {
+    // Evita il comportamento di default dell'evento.
     event.preventDefault();
+    // Marca tutti i campi del form come "touched" per visualizzare gli eventuali errori.
     form.control.markAllAsTouched();
   
     if (form.valid) {
+      // Determina la squadra scelta dal nuovo utente.
       const newUserTeam = form.value.team;
   
+      // Conta quanti utenti ci sono nella squadra ROSSA.
       const redCount = this.getTeamCount('RED');
+      // Conta quanti utenti ci sono nella squadra BLU.
       const blueCount = this.getTeamCount('BLUE');
+      // Calcola il numero totale di giocatori.
       const totalPlayers = redCount + blueCount;
   
-      // check if one of the teams has reached 11 players
+      // Verifica se una delle squadre ha raggiunto il limite di 11 giocatori.
       const isTeamFull = totalPlayers >= 11;
   
-      // calculate the absolute difference between the number of users in the two teams
+      // Calcola la differenza assoluta tra il numero di utenti nelle due squadre.
       const teamCountDiff = Math.abs(redCount - blueCount);
   
-      // check if adding a new user would make one team have more than 2 users than the other team
-      // or if one of the teams has reached 11 players
+      // Verifica se l'aggiunta di un nuovo utente violerebbe il limite di massimo 2 giocatori di differenza tra le squadre
+      // oppure se una delle squadre ha raggiunto il limite di 11 giocatori.
       if (teamCountDiff > 2 && !isTeamFull) {
-        alert('Cannot register new user because it will violate the limit of having no more than 2 users difference between teams');
+        alert('Impossibile registrare nuovo utente perché violerebbe il limite di massimo 2 giocatori di differenza tra le squadre');
         return;
       } else if (teamCountDiff > Math.max(redCount, blueCount) * 0.1 && isTeamFull) {
-        alert('Cannot register new user because it will violate the limit of having no more than 10% difference between teams');
+        alert('Impossibile registrare nuovo utente perché violerebbe il limite di massimo 10% di differenza tra le squadre');
         return;
       }
   
+      // Effettua la registrazione del nuovo utente.
       this.authService.register(form.value);
     }
   }
-  
 }

@@ -64,7 +64,7 @@ export const updateReview = async (req, res) => {
         });
         res.json({
             "message": "Recensione aggiornata",
-            data: rating
+            data: review
         });
     } catch (err) {
         console.log(err);

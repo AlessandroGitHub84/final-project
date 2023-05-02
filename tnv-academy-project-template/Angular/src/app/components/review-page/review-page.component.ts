@@ -81,7 +81,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
       }
       // Controllo se la recensione è valida e la aggiungo al server
       if (!this.isReviewValid(form.value.review)) {
-        console.log('La review deve essere lunga almeno 50 parole') ;
+        alert('La review deve essere lunga almeno 50 parole') ;
       } else {
         this.reviewService.addReview(review);
       }

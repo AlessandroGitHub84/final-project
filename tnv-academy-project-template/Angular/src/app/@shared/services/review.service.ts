@@ -24,7 +24,6 @@ export class ReviewService {
 
   // Metodo per aggiungere una recensione
   addReview(review: Review) {
-    console.log("sei arrivato anche qui");
     // Invia una richiesta POST al server per aggiungere la nuova recensione
     this.httpClient.post<Review>(`${this.API_ROOT}/review/`, review).subscribe(
       // Dopo aver completato la richiesta, torna alla pagina di selezione del film

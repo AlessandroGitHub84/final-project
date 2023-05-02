@@ -5,17 +5,17 @@
 
     </div>
     <div class="col-2">
-      <span class="line" style="text-align: right;">Punti totali: </span><span class="line"> {{ reviews.length }}</span>
+      <span class="line" style="text-align: right;">Your Score: </span><span class="line"> {{ reviews.length }}</span>
     </div>
   </div>
 
   <div class="row">
 
     <div class="profile col-5">
-      <h5>Profilo giocatore</h5><br />
-      <span class="profile-data">Nome</span>: <span>{{ currentUser.name }}</span><br />
-      <span class="profile-data">Cognome</span>: <span>{{ currentUser.surname }}</span><br />
-      <span class="profile-data">Film recensiti</span>: <span>{{ reviews.length }}</span><br />
+      <h5>Profile</h5><br />
+      <span class="profile-data">Name</span>: <span>{{ currentUser.name }}</span><br />
+      <span class="profile-data">Surname</span>: <span>{{ currentUser.surname }}</span><br />
+      <span class="profile-data">Reviews</span>: <span>{{ reviews.length }}</span><br />
 
       <div id="logout-space" class="logout">
         <tnv-logout class="mt-3" style="margin-left: 20px;"></tnv-logout>
@@ -29,15 +29,15 @@
   </div>
 
   <div class=" tab row" style="margin-top: 50px; text-align: center;">
-    <span class="reviews">Le tue recensioni</span>
+    <span class="reviews">Your Reviews</span>
     <div class="col-12" style="margin-top: 30px; text-align: center;">
       <table class="table table">
         <thead class="tablehead">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Titolo</th>
-            <th scope="col">Voto</th>
-            <th scope="col">Commento</th>
+            <th scope="col">Title</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Review</th>
           </tr>
         </thead>
         <tbody style=" text-align: left;">

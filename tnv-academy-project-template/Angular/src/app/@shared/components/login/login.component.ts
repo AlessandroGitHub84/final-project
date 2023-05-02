@@ -16,17 +16,26 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("/");
     }
   }
-
   login(form: NgForm) {
-    console.log("login component.ts", form.value);
+    console.log('login component.ts', form.value);
     form.control.markAllAsTouched();
+
+    // Se il form è valido, chiamiamo il servizio di autenticazione
     if (form.valid) {
       this.authService.login(form.value).subscribe({
+        // Se la chiamata ha successo, salviamo l'utente nella local storage e navighiamo alla pagina rankings
         next: (response) => {
-          localStorage.setItem("user", JSON.stringify(response));
-          this.router.navigateByUrl("/rankings");
+          localStorage.setItem('user', JSON.stringify(response));
+          this.router.navigateByUrl('/rankings');
         },
-        error: () => alert("Login Errato"),
+        // Se la chiamata fallisce, gestiamo l'errore in base allo status code
+        error: (err) => {
+          if (err.status === 401) {
+            alert('Username o password errati');
+          } else {
+            alert('C\'è stato un errore, la preghiamo di riprovare più tardi');
+          }
+        },
       });
     }
   }

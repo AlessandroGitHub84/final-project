@@ -33,7 +33,6 @@ export class ProfileComponent implements OnInit {
 
   // Recupera l'ID dell'utente corrente dal localStorage
   getID() {
-    console.log("Recupero l'id utente");
     let userString = localStorage.getItem("user");
     let user: User;
     user = JSON.parse(userString!);
