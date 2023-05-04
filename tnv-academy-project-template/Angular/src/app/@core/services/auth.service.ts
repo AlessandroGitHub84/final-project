@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable, of } from "rxjs";
+import { Observable, switchMap } from "rxjs";
 import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
 
 @Injectable({
@@ -44,10 +44,38 @@ export class AuthService {
     );
   }
 
+  deleteUser(id: number) {
+    // Invia una richiesta DELETE al server per eliminare la recensione specificata
+    return this.http.delete(`/auth/users/${id}`,{ responseType: 'text' })
+  }
+  updateUser(user: User) {
+    // Invia una richiesta PUT al server per aggiornare l'utente specificato
+    return this.http.put(
+      `/auth/users/${user.id}`, 
+      { name: user.name,
+        surname: user.surname,
+        password: user.password,
+        team: user.team,
+        username: user.username
+      },{ responseType: 'text' })
+      .subscribe({
+        // Dopo aver completato l'aggiornamento, torna alla pagina del profilo utente
+        next: () => {
+          localStorage.setItem("user", JSON.stringify(user))
+          this.router.navigate(["/profile"]);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+  }
+  
+
 
   // Metodo per effettuare il logout dell'utente
   logout() {
     localStorage.removeItem("user"); // Rimuove il token JWT salvato in localStorage
+    this.router.navigateByUrl("/login");
   }
 
   // Metodo che verifica se l'utente è autenticato o meno

@@ -20,6 +20,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
 import {UpdateReviewPageComponent} from './components/update-review-page/update-review-page.component';
 import {MatInputModule} from '@angular/material/input';
+import { EditProfileComponent } from './@shared/components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatInputModule} from '@angular/material/input';
     RankingsComponent,
     MovieSelectionComponent,
     ReviewPageComponent,
-    UpdateReviewPageComponent
+    UpdateReviewPageComponent,
+    EditProfileComponent
   ],
   imports:[
     BrowserModule,

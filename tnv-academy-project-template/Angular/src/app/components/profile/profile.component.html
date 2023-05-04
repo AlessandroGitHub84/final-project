@@ -16,6 +16,9 @@
       <span class="profile-data">Name</span>: <span>{{ currentUser.name }}</span><br />
       <span class="profile-data">Surname</span>: <span>{{ currentUser.surname }}</span><br />
       <span class="profile-data">Reviews</span>: <span>{{ reviews.length }}</span><br />
+      <a mat-button [routerLink]="['/edit-profile/',currentUser.id]">Update</a>
+      <button mat-button (click)="deleteUser(currentUser.id!)">Delete</button>
+
 
       <div id="logout-space" class="logout">
         <tnv-logout class="mt-3" style="margin-left: 20px;"></tnv-logout>

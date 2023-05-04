@@ -10,6 +10,7 @@ import { RankingsComponent } from "./components/rankings/rankings.component";
 import { MovieSelectionComponent } from "./components/movie-selection/movie-selection.component"; 
 import { ReviewPageComponent } from "./components/review-page/review-page.component";
 import { UpdateReviewPageComponent } from "./components/update-review-page/update-review-page.component";
+import { EditProfileComponent } from "./@shared/components/edit-profile/edit-profile.component";
 const routes: Routes = [
   {
     path: "",
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: "rankings", component: RankingsComponent },
       { path: "reviews/:id", component: ReviewPageComponent },
       { path: "update/:id", component: UpdateReviewPageComponent },
+      { path: "edit-profile/:id", component: EditProfileComponent },
       
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
       {path: "movie-selection", component: MovieSelectionComponent},

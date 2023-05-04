@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   currentUser: Partial<User> = {};
   reviews: Review[] = [];
   currentID = this.getID();
+  users: User[] = [];
 
   constructor(
     private authService: AuthService, 
@@ -48,6 +49,15 @@ export class ProfileComponent implements OnInit {
           this.reviews = response.filter((x) => x.userId == this.currentID);
         }
     })
+  }
+  deleteUser(id: number){
+    this.authService.deleteUser(id).subscribe({
+      next: () =>{ this.users = this.users.filter( (x) => x.id !== id)
+      this.authService.logout()},
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 
   // Cancella una recensione dall'elenco delle recensioni dell'utente

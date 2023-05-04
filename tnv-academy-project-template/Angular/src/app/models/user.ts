@@ -3,7 +3,8 @@ export interface User {
   name: string;
   surname: string;
   username: string;
-  team: string
+  team: string;
+  password: string
 }
 
 export interface LoginDTO {

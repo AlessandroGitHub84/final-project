@@ -46,7 +46,7 @@ public class UserService {
     }
 
     // Aggiorna un utente nel database
-    public String updateUser(int id, User user) {
+    public String updateUser(int id, User user)  {
         user.setId(id);
         User resultUser = userDAO.save(user);
         if (resultUser != null) {
@@ -60,10 +60,10 @@ public class UserService {
     public String deleteUser(int id) {
         User user = userDAO.findById(id).orElse(null);
         if (user == null) {
-            return "Utente non trovato!";
+            return "User not found!";
         } else {
             userDAO.delete(user);
-            return "Utente cancellato correttamente";
+            return "User deleted correctly";
         }
     }
 
