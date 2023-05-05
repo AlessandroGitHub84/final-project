@@ -30,6 +30,8 @@ public visualisedMovie = {
 constructor(private authService: AuthService, private route: ActivatedRoute, private http: HttpClient, private router: Router,
   private reviewService: ReviewService) {}
 
+  // Creazione di un oggetto Review inizializzato con valori di default
+// per i suoi attributi
   review: Review = { userId:0,
     title: "",
     movieId:0,
@@ -38,11 +40,12 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
     rating: 0 };
 
   ngOnInit(): void {
+      // Recupero dell'utente attualmente autenticato
     this.currentUser = this.authService.getCurrentUser();
     this.sub = this.route.params.subscribe(params =>{
       this.id = +params["id"];
-      this.getReview();
-      this.getMovie();
+      this.getReview(); // Richiesta dei dati della recensione del film
+      this.getMovie(); // Richiesta dei dati del film
     })
   }
   getReview() {
@@ -52,19 +55,21 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
     )
     .subscribe({
       next: (response: any) => {
-       this.review = response;
+       this.review = response;  // Salvo i dati
       },
       error: () => {
-        console.log("Non funziona!");
+        console.log("Non funziona!");  // Gestione dell'errore in caso di fallimento della richiesta
       },
     });
 }
+
+// Metodo che verifica se la recensione inserita è valida
   isReviewValid(review : string) {
     const words = review.trim().split(' ');
     return words.length >= 50;
   }
 
-
+  //Metodo di aggiornamento della review
   updateReview(event: Event, form: NgForm){
     event.preventDefault()
     form.control.markAllAsTouched();
@@ -78,11 +83,11 @@ constructor(private authService: AuthService, private route: ActivatedRoute, pri
         alert('la review deve essere lunga almeno 50 parole') ;
        } 
  
-       this.reviewService.updateReview(this.review);
+       this.reviewService.updateReview(this.review); 
     }
   }
 
-  
+  //Metodo che recupera il film tramite il suo id
   getMovie() {
     this.http
       .get(

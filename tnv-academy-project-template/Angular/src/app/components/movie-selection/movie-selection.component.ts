@@ -69,6 +69,5 @@ export class MovieSelectionComponent implements OnInit {
     this.currentUser = this.authService.getCurrentUser();
     this.getRandomMovie();
   }
-
 }
 

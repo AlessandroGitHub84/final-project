@@ -20,10 +20,10 @@ export class ProfileComponent implements OnInit {
   users: User[] = [];
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private reviewService: ReviewService,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // Recupera l'utente corrente al caricamento della pagina
@@ -50,10 +50,14 @@ export class ProfileComponent implements OnInit {
         }
     })
   }
-  deleteUser(id: number){
+
+  //Cancella lo user ed effettua il logout
+  deleteUser(id: number) {
     this.authService.deleteUser(id).subscribe({
-      next: () =>{ this.users = this.users.filter( (x) => x.id !== id)
-      this.authService.logout()},
+      next: () => {
+        this.users = this.users.filter((x) => x.id !== id)
+        this.authService.logout()
+      },
       error: (err) => {
         console.error(err);
       }
@@ -61,9 +65,9 @@ export class ProfileComponent implements OnInit {
   }
 
   // Cancella una recensione dall'elenco delle recensioni dell'utente
-  deleteReview(id: string){
+  deleteReview(id: string) {
     this.reviewService.deleteReview(id).subscribe({
-      next: () => this.reviews = this.reviews.filter( (x) => x.id !== id)
+      next: () => this.reviews = this.reviews.filter((x) => x.id !== id)
     });
   }
 }

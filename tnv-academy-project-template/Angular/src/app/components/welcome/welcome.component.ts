@@ -19,24 +19,22 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
     // Quando il componente viene caricato, si richiedono le recensioni al ReviewService
     this.getReviews().subscribe((counts: number[]) => {
-      // Si assegna il valore di "counts" alla proprietà "reviewCounts"
+     
       this.reviewCounts = counts;
     });
   }
 
-  // Questo metodo restituisce un Observable che emette un array di numeri rappresentanti il numero di recensioni per il team "BLUE" e "RED"
   getReviews(): Observable<number[]> {
     return this.reviewService.getReviewsById().pipe(
       map((reviews: Review[]) => {
-        // Si filtra l'array di recensioni in modo da ottenere solo quelle del team "BLUE"
+        // filtra l'array di recensioni in modo da ottenere solo quelle del team "BLUE"
         const blueReviewCount = reviews.filter((review) => review.team === 'BLUE').length;
-        // Si filtra l'array di recensioni in modo da ottenere solo quelle del team "RED"
+        // filtra l'array di recensioni in modo da ottenere solo quelle del team "RED"
         const redReviewCount = reviews.filter((review) => review.team === 'RED').length;
-        // Si restituisce un array con il numero di recensioni per il team "BLUE" e "RED"
+        // restituisce un array con il numero di recensioni per il team "BLUE" e "RED"
         return [blueReviewCount, redReviewCount];
       })
     );
   }
-  
 }
 
