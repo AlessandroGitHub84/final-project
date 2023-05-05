@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         // Se la chiamata ha successo, salviamo l'utente nella local storage e navighiamo alla pagina rankings
         next: (response) => {
           localStorage.setItem('user', JSON.stringify(response));
-          this.router.navigateByUrl('/rankings');
+          this.router.navigateByUrl('/welcome');
         },
         // Se la chiamata fallisce, gestiamo l'errore in base allo status code
         error: (err) => {

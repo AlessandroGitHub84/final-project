@@ -33,40 +33,58 @@ export class RegisterComponent implements OnInit {
   }
   
   register(event: Event, form: NgForm) {
-    // Evita il comportamento di default dell'evento.
+    // Prevenire l'invio del form.
     event.preventDefault();
-    // Marca tutti i campi del form come "touched" per visualizzare gli eventuali errori.
+   
     form.control.markAllAsTouched();
   
+    // Verifica se il form è valido.
     if (form.valid) {
-      // Determina la squadra scelta dal nuovo utente.
+      // Prende il valore della squadra selezionata dal nuovo utente.
       const newUserTeam = form.value.team;
   
-      // Conta quanti utenti ci sono nella squadra ROSSA.
+      // Conta il numero di giocatori nella squadra rossa e blu.
       const redCount = this.getTeamCount('RED');
-      // Conta quanti utenti ci sono nella squadra BLU.
       const blueCount = this.getTeamCount('BLUE');
       // Calcola il numero totale di giocatori.
       const totalPlayers = redCount + blueCount;
   
-      // Verifica se una delle squadre ha raggiunto il limite di 11 giocatori.
+      // Verifica se il numero totale di giocatori è superiore o uguale a 11
       const isTeamFull = totalPlayers >= 11;
   
-      // Calcola la differenza assoluta tra il numero di utenti nelle due squadre.
+      // Calcola la differenza di giocatori tra le squadre.
       const teamCountDiff = Math.abs(redCount - blueCount);
+      // Calcola il numero di giocatori nella nuova squadra.
+      const newUserTeamCount = newUserTeam === 'RED' ? redCount + 1 : blueCount + 1;
   
-      // Verifica se l'aggiunta di un nuovo utente violerebbe il limite di massimo 2 giocatori di differenza tra le squadre
-      // oppure se una delle squadre ha raggiunto il limite di 11 giocatori.
-      if (teamCountDiff > 2 && !isTeamFull) {
-        alert('Impossibile registrare nuovo utente perché violerebbe il limite di massimo 2 giocatori di differenza tra le squadre');
+      // Verifica se l'aggiunta del nuovo utente violerebbe il limite di massimo 1 giocatore di differenza tra le squadre.
+      if (
+        teamCountDiff > 1 &&
+        !isTeamFull &&
+        ((newUserTeam === 'RED' && (blueCount - redCount >= 1)) ||
+          (newUserTeam === 'BLUE' && (redCount - blueCount >= 1)))
+      ) {
+        alert(
+          'Impossibile registrare nuovo utente perché violerebbe il limite di massimo 1 giocatore di differenza tra le squadre'
+        );
         return;
-      } else if (teamCountDiff > Math.max(redCount, blueCount) * 0.1 && isTeamFull) {
-        alert('Impossibile registrare nuovo utente perché violerebbe il limite di massimo 10% di differenza tra le squadre');
+      // Verifica se l'aggiunta del nuovo utente violerebbe il limite di massimo 10% di differenza tra le squadre.
+      } else if (
+        teamCountDiff > 0 &&
+        isTeamFull &&
+        ((newUserTeam === 'RED' && newUserTeamCount / blueCount > 1.1) ||
+          (newUserTeam === 'BLUE' && newUserTeamCount / redCount > 1.1))
+      ) {
+        alert(
+          'Impossibile registrare nuovo utente perché violerebbe il limite di massimo 10% di differenza tra le squadre'
+        );
         return;
       }
   
-      // Effettua la registrazione del nuovo utente.
+      // Registra il nuovo utente.
       this.authService.register(form.value);
     }
   }
+  
+
 }
